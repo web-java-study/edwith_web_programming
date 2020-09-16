@@ -10,3 +10,45 @@ JSP 에서는 여러종류의 선언문을 사용 할 수 있는데
 <%!  %> = 서비스영역이 아닌 그 전과 후에 실행될 라이프사이클 에서 동작할 내용에 대해서 직접 선언하고 작성 할 수 있다.
 ```
 
+## forward vs redirect
+일단 가장 큰 차이점은 주소창의 변화다 
+  
+redirect 는 내가 입력한 주소와 이동되어 출려되는 주소가 다르게 나오고  
+forward 는 주소는 그대로이고 요청한 내용의 처리만 다른 servlet 에 맡겨 응답을 받아오는 형태를 취한다.
+  
+즉 첫번쨰 방법은 하나의 서블릿파일로 처리 할 수 있고 두번째 방법은 두개의 서블릿 파일이 필요하다. 
+
+
+**FrontServlet.java**
+```java
+protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		int diceValue = (int)(Math.random() * 6) + 1;
+		request.setAttribute("dice", diceValue);
+		
+		RequestDispatcher requestDispatcher = request.getRequestDispatcher("/next");
+		requestDispatcher.forward(request, response);
+	}
+```
+
+
+**NextServlet.java**
+```java
+protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		response.setContentType("text/html");
+		PrintWriter out = response.getWriter();
+		out.print("<html>");
+		out.print("<head><title>form</title></head>");
+		out.print("<body>");
+		
+		int dice = (Integer)request.getAttribute("dice");
+		out.print("dice: " + dice);
+		for(int i = 0; i < dice; i++) {
+			out.print("hello");
+		}
+		
+		out.print("</body>");
+		out.print("</html>");
+	}
+```
