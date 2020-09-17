@@ -22,33 +22,77 @@ forward 는 주소는 그대로이고 요청한 내용의 처리만 다른 servl
 **FrontServlet.java**
 ```java
 protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		int diceValue = (int)(Math.random() * 6) + 1;
-		request.setAttribute("dice", diceValue);
-		
-		RequestDispatcher requestDispatcher = request.getRequestDispatcher("/next");
-		requestDispatcher.forward(request, response);
-	}
+	// TODO Auto-generated method stub
+	int diceValue = (int)(Math.random() * 6) + 1;
+	request.setAttribute("dice", diceValue);
+	
+	RequestDispatcher requestDispatcher = request.getRequestDispatcher("/next");
+	requestDispatcher.forward(request, response);
+}
 ```
 
 
 **NextServlet.java**
 ```java
 protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.setContentType("text/html");
-		PrintWriter out = response.getWriter();
-		out.print("<html>");
-		out.print("<head><title>form</title></head>");
-		out.print("<body>");
-		
-		int dice = (Integer)request.getAttribute("dice");
-		out.print("dice: " + dice);
-		for(int i = 0; i < dice; i++) {
-			out.print("hello");
-		}
-		
-		out.print("</body>");
-		out.print("</html>");
+	// TODO Auto-generated method stub
+	response.setContentType("text/html");
+	PrintWriter out = response.getWriter();
+	out.print("<html>");
+	out.print("<head><title>form</title></head>");
+	out.print("<body>");
+	
+	int dice = (Integer)request.getAttribute("dice");
+	out.print("dice: " + dice);
+	for(int i = 0; i < dice; i++) {
+		out.print("hello");
 	}
+	
+	out.print("</body>");
+	out.print("</html>");
+}
+```
+
+
+## Servlet 과 JSP 의 연동
+Servlet 은 로직을 수행하기에 적합하고 JSP 는 결과를 출력하기에 적합하다. 때문에 두 파일의 장점을 살려서 연동하여 사용할 수 있다. html 에는 정적인 요소들만 가질 수 있기때문에 JSP 파일을 사용하면 html 내부에서 동적인 요소의 결과들을 편하게 출력 할 수 있다.
+
+
+**LogicServlet**
+```java
+protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	// TODO Auto-generated method stub
+	int v1 = (int)(Math.random() * 100) + 1;
+	int v2 = (int)(Math.random() * 100) + 1;
+	int result = v1 + v2;
+	
+	request.setAttribute("v1", v1); // setAttribute 로 request 에 값을 v1 이란 이름으로 저장
+	request.setAttribute("v2", v2);
+	request.setAttribute("result", result);
+	
+	RequestDispatcher rd = request.getRequestDispatcher("/result.jsp"); // 어떤 JSP 파일과 연결해줄지 지정
+	rd.forward(request, response); // 지정한 JSP 파일로 request 와 response 를 포워드
+}
+
+```
+
+**Result.jsp**
+```jsp
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<%
+ int v1 = (int)request.getAttribute("v1"); // getAttribute 로 저장했던 값을 불러옴
+ int v2 = (int)request.getAttribute("v2");
+ int result = (int)request.getAttribute("result");
+%>
+<%=v1 %> + <%=v2 %> = <%=result %> <!-- 해당 결과 값들을 출력 -->
+</body>
+</html>
 ```
