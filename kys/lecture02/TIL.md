@@ -279,3 +279,15 @@ grant all privileges on connectdb.* to 'connectuser'@'%';
 flush privileges;  
 
 
+## DML(select, insert, update, delete)
+데이터 조작어의 4가지 종류 이다. 순서대로 검색, 등록, 수정, 삭제 를 조작할 수 있는 명령어이다.
+
+```sql
+show tables; --전체 테이블 조회
+desc bonus; --보너스테이블의 정보 조회
+select * from bonus; -- 보너스 테이블의 전체 데이터 조회
+select name from employee; -- 직원 테이블에서 이름만 검색
+select * from employee where name="ford"; -- 직원테이블에서 이름이 ford 인 사람의 데이터 조회
+select job from employee order by name; -- 직원테이블에서 name 순으로 정렬된 job 데이터 출력
+select * from employee where name like 'A%'; -- 직원테이블에서 이름이 A로 시작하는 데이터 출력
+```
