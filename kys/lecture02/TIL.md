@@ -282,6 +282,8 @@ flush privileges;
 ## DML(select, insert, update, delete)
 데이터 조작어의 4가지 종류 이다. 순서대로 검색, 등록, 수정, 삭제 를 조작할 수 있는 명령어이다.
 
+
+### SELECT
 ```sql
 show tables; --전체 테이블 조회
 desc bonus; --보너스테이블의 정보 조회
@@ -290,4 +292,38 @@ select name from employee; -- 직원 테이블에서 이름만 검색
 select * from employee where name="ford"; -- 직원테이블에서 이름이 ford 인 사람의 데이터 조회
 select job from employee order by name; -- 직원테이블에서 name 순으로 정렬된 job 데이터 출력
 select * from employee where name like 'A%'; -- 직원테이블에서 이름이 A로 시작하는 데이터 출력
+select name,job,deptno from employee; -- 직원테이블에서 name, job, deptno 의 컬럽에 있는 데이터만 출력
+select count(*) from employee; -- 직원테이블의 null 데이터 포함하여 전체 컬럼 갯수 출력하는 함수
+select employee.name, department.location from employee inner join department on employee.deptno = department.deptno; -- 직원테이블 기준으로 부서테이블 데이터중에 name과 location 을 출력하려고 한다 
+```
+
+### INSERT
+```sql
+insert into 테이블명 values(value1, value2....); -- 해당 테이블에 컬럼수 만큼 데이터 입력 컬럼의 타입에 맞춰야 한다.
+insert into 테이블명(컬럼명) values(value); -- 해당 테이블의 원하는 컬럼에만 데이터 입력 가능 다만 필수키로 지정된 컬럼은 반듯이 값이 입력되어야 한다.
+```
+
+### UPDATE
+```sql
+update 테이블명 set 변경할컬럼명 = 'value' where 기준컬럼명 = 'value'; -- 해당 테이블의 변경할 컬러명 데이터를 변경하는데 기준컬럼 정보 기준으로 변경
+```
+
+### DELETE
+```sql
+delete from 테이블명 where 컬럼명 = value; -- 해당테이블의 컬럼데이터와 일하는 행 삭제;
+```
+
+## DDL (create, drop)
+데이터 조작어는 테이블의 데이터를 조작하는 명령어라면 DDL(데이터 정의어) 은 데이터를 감싸고 있는 틀인 테이블을 생성 수정 삭제하는 명령어이다.
+
+### CREATE
+```sql
+create table book (
+	isbn varchar(10) primary key,
+	title varchar(20) not null,
+	price integer not null
+);
+-- isbn 컴럼은 테이블에서 유일한 키값을 가지며 varvhar 타입으로 10의 입력 제한을 받는다.
+-- title 은 null 이 올수 없으며 20자의 입력 제한을 갖는다.
+-- price null 이 올수 없으며 숫자형을 갖는다.
 ```
