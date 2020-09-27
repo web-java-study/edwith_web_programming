@@ -341,7 +341,7 @@ javascript 에서 webpack이 있는것처럼 java 에서는 maven 이라는 패�
 ### MAVEN PROJECT SETTING
 세팅을 진행하던 도중 몇가지 문제점이 있었다. 해결해서 설정을 완료하긴 했지만 이강좌...좀 불친절한면이 있는것같다. 2년전 강의이기도하고 기본프로젝트 구조가 좀 바뀌어 있는것도 한몫하는것 같다.
 
-#### 문제1 web.xml 이 코드수정형태가 아니라 GUI 형태로 나온다
+#### 문제1 web.xml 이 코드수정형태가 아니라 UI 형태로 나온다
 우클릭해서 open width > text editor 로 열어서 수정했다.
 
 #### 문제2 .settings 폴더가 없다.
