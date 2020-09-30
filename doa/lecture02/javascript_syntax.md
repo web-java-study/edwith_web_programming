@@ -238,3 +238,63 @@ function yourAge(age) {
 var age = yourAge(24);
 console.log(age);
 ```
+
+## Array
+
+```jsx
+var boostCourse = ["test01", "test02", "test03"];
+
+console.log(boostCourse[0]);
+console.log(boostCourse[1]);
+console.log(boostCourse[2]);
+
+var scores = [
+	[10, 20, 30, 40],
+	[50, 60, 70, 80],
+	[90, 100, 110, 120]
+];
+
+// socres 배열의 50
+console.log(scores[1][0]);
+```
+
+## Object
+
+```jsx
+/*객체, 변수와 함수의 집합체
+name = key, property
+프로퍼티의 데이터는 value*/
+
+var student = {
+	name : "doa",
+	age : 24
+};
+
+/*객체의 프로퍼티에 접근*/
+console.log(student.name);
+console.log(student.age);
+
+// 혹은
+console.log(student['name']);
+console.log(student['age']);
+
+/*객체에 프로퍼티 추가*/
+student.address = "Kimpo";
+
+/*객체의 메서드, 객체 안에 포함되어 있는 함수*/
+var student = {
+	name : "doa",
+	age : 24,
+	address : "Kimpo",
+	sum : function(num1, num2) {
+		return num1 + num2;
+	}
+};
+
+/*객체의 메서드 추가*/
+student.sum = function(num, num2) {
+	return num1 + num2;
+}
+
+var studentDoa = student.sum(10, 20);
+```
