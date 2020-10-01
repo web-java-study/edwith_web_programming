@@ -298,3 +298,19 @@ student.sum = function(num, num2) {
 
 var studentDoa = student.sum(10, 20);
 ```
+
+## split
+
+```jsx
+/*문자열을 배열로 변환, 문자열 자르기*/
+var result = "ab:cd".split("");
+console.log(toString.call(result);
+```
+
+## trim
+
+```jsx
+/*공백 삭제*/
+var result = " ab:cd ".trim();
+console.log(result);
+```
