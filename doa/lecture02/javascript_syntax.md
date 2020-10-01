@@ -239,6 +239,22 @@ var age = yourAge(24);
 console.log(age);
 ```
 
+함수표현식
+```
+function printName(firstname) {
+
+    var inner = function() {
+        return "inner value";
+    }
+
+    // 변수에 함수를 담는 것. 함수표현식
+    var result = inner();
+    console.log("name is " + result);
+}
+
+printName();
+```
+
 ## Array
 
 ```jsx
