@@ -239,6 +239,7 @@ var age = yourAge(24);
 console.log(age);
 ```
 
+<<<<<<< HEAD
 함수표현식
 ```
 function printName(firstname) {
@@ -255,6 +256,8 @@ function printName(firstname) {
 printName();
 ```
 
+=======
+>>>>>>> dddf074f123b341a3b3991c996e8d48792f4dc45
 ## Array
 
 ```jsx

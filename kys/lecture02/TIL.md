@@ -364,4 +364,10 @@ REST(REpresentational State Transfer) 는 2000년도에 로이필딩에 의해�
 - URI는 정보의 자원을 표현해야한다.
   - resource는 동사보단 명사를, 대문자보다는 소문자를 사용한다.
   - resource의 스토어 이름으로는 복수 명사를 사용해야한다.
-  - 
+
+
+
+## Web API
+REST API 규칙이 잘 지켜지지 않은것은 Web API 라고 부를 수 있는데 몇가지 원칙이 존재한다.
+- URI는 정보의 자원을 표현해야하고
+- 자원에 대한 행위는 HTTP Method 로 표현해야한다.

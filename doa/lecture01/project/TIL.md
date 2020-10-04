@@ -82,3 +82,24 @@ text-decoration : 하이퍼링크의 밑줄 제거
 text-align : 정렬
 
 border : 테두리 만들기
+<<<<<<< HEAD
+=======
+
+
+## 2020-10-04
+
+**오프라인 모임 프로젝트 피드백 및 기타 내용정리**
+
+1. 영역별로 색상을 입히고 시작을 하는게 좋음
+2. Inline 태그와 block 태그
+3. 태그별 Default 속성
+4. hr 태그와 br 태그는 자제 → p 태그 사용, CSS 속성으로 br, hr 태그를 대체하는게 좋음
+5. background-color → body
+6. reset.css와 normalize.css (브라우저 기본 스타일 초기화)
+7. float 으로 레이아웃을 잡지 않고, flex 를 사용
+8. id는 고유한 것에만 지정
+9. 전역에서 사용할 CSS 작성 → 각 페이지별 CSS
+10.  * → 전체 태그에 모두 적용
+11. CSS 우선순위
+12. SCSS
+>>>>>>> dddf074f123b341a3b3991c996e8d48792f4dc45

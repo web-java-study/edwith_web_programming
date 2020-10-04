@@ -1,0 +1,101 @@
+div {
+    margin: 5px;
+}
+
+.img-map {
+    width: 50%;
+    height: auto;
+}
+
+.btn {
+    text-decoration: none;
+    font-size: 1rem;
+    color: #5eaa5f;
+    padding: 10px 20px;
+    margin: 10px;
+    display: inline-block;
+    border: 1px solid #5eaa5f;
+    box-shadow: 0px 0px 4px dimgray;
+}
+
+.btn-big {
+    text-decoration: none;
+    font-size: 2rem;
+    color: #5eaa5f;
+    padding: 20px 30px;
+    margin: 10px;
+    display: inline-block;
+    border: 1px solid #5eaa5f;
+    box-shadow: 0px 0px 4px dimgray;
+}
+
+.btn:hover {
+    color: white;
+    font-size: 1rem;
+    background-color: #5eaa5f;
+}
+
+.content, .footer {
+    text-align: center;
+}
+
+.content>p, .footer>p {
+    margin: 5px 200px;
+}
+
+.git {
+    text-decoration: none;
+    font-size: 30px;
+}
+
+.nav {
+    width: 100%;
+    display: inline-block;
+}
+
+.nav h1 {
+    display: inline-block;
+}
+
+.left {
+    float: left;
+}
+
+.right {
+    float: right;
+}
+
+hr {
+    border: 2px solid #5eaa5f;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0px;
+    padding: 0px;
+}
+
+li {
+    display: inline-block;
+    text-align: left;
+    width: 80%;
+    margin: 50px 100px;
+    border-top : 1px solid #5eaa5f;
+    border-bottom : 1px solid #5eaa5f;
+}
+
+li * {
+    margin: 5px;
+}
+
+li img {
+    width: 400px;
+    display: inline-block;
+    border: 5px solid #5eaa5f;
+}
+
+.li-content {
+    display: inline-block;
+    width: 50%;
+}
+
