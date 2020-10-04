@@ -1,0 +1,74 @@
+/*상단 메뉴바가 오른쪽에 배치될 수 있도록 오른쪽 정렬*/
+.topMenu {
+    float:right;
+}
+
+/*상단 메뉴바 가로로 구성*/
+.topMenu ul li {
+    background-color: #66CCCC;
+    list-style:none; /*목록 구분 문자 삭제*/
+    float:right; /*메뉴바 오른쪽 정렬*/
+    
+    padding: 10px; /*버튼 안쪽 간격 크기*/
+    margin-right: 5px; /*각 버튼 사이마다 간격*/
+    
+    border: 1px solid #bcbcbc;  /*버튼 테두리 만들기*/
+    box-shadow: 2px 2px 3px #929292;    /*버튼 테투리 그림자효과, 가로거리, 세로거리, 퍼지는 정도, 색상 설정*/
+    cursor: pointer; /*버튼 마우스 커서 모양 변경*/
+    border-radius: 5%; /*버튼 둥글게*/
+}
+
+/*상단 메뉴바의 링크*/
+.topMenu #menuLink {
+    color:9933FF; /*상단 메뉴바 폰트 색상 변경*/
+    text-decoration:none; /*상단 메뉴바 밑줄 제거*/
+}
+
+/*본문 제목*/
+.subject {
+    text-align:center; /*본문의 제목을 가운데 정렬*/
+}
+
+/*본문 내용*/
+.introDuce {   
+    text-align:center; /*본문의 내용을 가운데 정렬*/
+}
+
+/*본문의 버튼*/
+.introDuce #introLink {
+    border: 1px solid #bcbcbc;  /*버튼 테두리 만들기*/
+    box-shadow: 2px 2px 3px #929292;    /*그림자효과, 가로거리, 세로거리, 퍼지는 정도, 색상 설정*/
+    background-color: #66CCCC;  /*버튼 색상 변경*/
+    color:#fff; /*버튼 폰트 색상변경*/
+
+    text-decoration:none;   /*버튼 밑줄 제거*/
+    cursor: pointer; /*마우스 커서 모양 변경*/
+    border-radius: 5%;  /*테두리 둥글게*/
+
+    padding: 25px 25px; /*버튼의 크기, 다시 조절해야 함.*/
+    margin-right: 5px;
+}
+
+.introDuce > p {
+    margin-bottom:50px /*본문의 내용과 본문 버튼이 겹쳐서 본문 간격을 줌*/
+}
+
+/*본문 이미지*/
+.map {
+    text-align:center; /*가운데 정렬*/
+    margin-top:50px; /*버튼을 가리므로, 버튼과 지도 사이의 간격을 줌*/
+}
+
+.my-hr {
+    border: 0;
+    height: 5px;
+    background: #ccc;
+}
+
+/*하단 푸터 영역*/
+footer {
+    color:#ccc; /*폰트 색상변경*/
+    text-align: center;
+}
+
+/*상단 메뉴 모양은 각 페이지마다 동일하므로 다른 css 파일을 만들어서 한 번에 적용해보기*/

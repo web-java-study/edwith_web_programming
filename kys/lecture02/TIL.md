@@ -282,6 +282,8 @@ flush privileges;
 ## DML(select, insert, update, delete)
 데이터 조작어의 4가지 종류 이다. 순서대로 검색, 등록, 수정, 삭제 를 조작할 수 있는 명령어이다.
 
+
+### SELECT
 ```sql
 show tables; --전체 테이블 조회
 desc bonus; --보너스테이블의 정보 조회
@@ -290,4 +292,82 @@ select name from employee; -- 직원 테이블에서 이름만 검색
 select * from employee where name="ford"; -- 직원테이블에서 이름이 ford 인 사람의 데이터 조회
 select job from employee order by name; -- 직원테이블에서 name 순으로 정렬된 job 데이터 출력
 select * from employee where name like 'A%'; -- 직원테이블에서 이름이 A로 시작하는 데이터 출력
+select name,job,deptno from employee; -- 직원테이블에서 name, job, deptno 의 컬럽에 있는 데이터만 출력
+select count(*) from employee; -- 직원테이블의 null 데이터 포함하여 전체 컬럼 갯수 출력하는 함수
+select employee.name, department.location from employee inner join department on employee.deptno = department.deptno; -- 직원테이블 기준으로 부서테이블 데이터중에 name과 location 을 출력하려고 한다 
 ```
+
+### INSERT
+```sql
+insert into 테이블명 values(value1, value2....); -- 해당 테이블에 컬럼수 만큼 데이터 입력 컬럼의 타입에 맞춰야 한다.
+insert into 테이블명(컬럼명) values(value); -- 해당 테이블의 원하는 컬럼에만 데이터 입력 가능 다만 필수키로 지정된 컬럼은 반듯이 값이 입력되어야 한다.
+```
+
+### UPDATE
+```sql
+update 테이블명 set 변경할컬럼명 = 'value' where 기준컬럼명 = 'value'; -- 해당 테이블의 변경할 컬러명 데이터를 변경하는데 기준컬럼 정보 기준으로 변경
+```
+
+### DELETE
+```sql
+delete from 테이블명 where 컬럼명 = value; -- 해당테이블의 컬럼데이터와 일하는 행 삭제;
+```
+
+## DDL (create, drop)
+데이터 조작어는 테이블의 데이터를 조작하는 명령어라면 DDL(데이터 정의어) 은 데이터를 감싸고 있는 틀인 테이블을 생성 수정 삭제하는 명령어이다.
+
+### CREATE
+```sql
+create table book (
+	isbn varchar(10) primary key,
+	title varchar(20) not null,
+	price integer not null
+);
+-- isbn 컴럼은 테이블에서 유일한 키값을 가지며 varvhar 타입으로 10의 입력 제한을 받는다.
+-- title 은 null 이 올수 없으며 20자의 입력 제한을 갖는다.
+-- price null 이 올수 없으며 숫자형을 갖는다.
+```
+
+
+### ALTER
+```sql
+alert table book add author varchar(20); -- 테이블에 author 필드추가
+alert table book drop price; -- 테이블에서 price 필드 제거
+```
+
+## MAVEN
+javascript 에서 webpack이 있는것처럼 java 에서는 maven 이라는 패키지 매니저같은 시스템이 있는것같다. 메이븐을 사용할 경우 편리한 의존성 라이브러리 관리를 할 수 있고 프로젝트 빌드와 관련된 내용들을 일관성있게 만들어주는 도구라고 볼 수 있을것같다.
+
+### MAVEN PROJECT SETTING
+세팅을 진행하던 도중 몇가지 문제점이 있었다. 해결해서 설정을 완료하긴 했지만 이강좌...좀 불친절한면이 있는것같다. 2년전 강의이기도하고 기본프로젝트 구조가 좀 바뀌어 있는것도 한몫하는것 같다.
+
+#### 문제1 web.xml 이 코드수정형태가 아니라 UI 형태로 나온다
+우클릭해서 open width > text editor 로 열어서 수정했다.
+
+#### 문제2 .settings 폴더가 없다.
+폴더자체가 없는건 아니고 프로젝트 구조상 건들일 필요가 없다 라고 봤던건지 숨김처리되어있었다.  
+필터아이콘을 클릭해서 .*resources 를 해제해 주었더니 숨김 파일 등장
+
+여차저차해서 댓글로 다른사람들이 겪는 오류는 발생하지않고 무난하게 프로젝트 세팅은 진행했다.  
+서버실행할때 오류나는 부분은 댓글에 나온내용과 동잃하게 진행했다. 서버리셋 , maven update 
+
+
+## JDBC
+자바를 이용한 데이터베이스 접속과 SQL 문장의실행 그리고 실행결과로 얻어진 데이터 핸들링을 제공하는 방법과 절차에 대한 규약이다.  
+자바 프로그램내에서 SQL 문을 실행하기 위한 자바 API 이다.
+
+## REST API
+REST(REpresentational State Transfer) 는 2000년도에 로이필딩에 의해서 최초로 소개되었다.  
+소프트웨어 설계 제약사항으로 효과적이고 신뢰를 주고 측정가능한 분산시스템을 위한 것이다. 즉 자원을 정의하고 그 주소를 지정하는 전반의 방법론이다.  
+이러한 설계방식을 잘 적용한것을 RESTful 이라고 말한다.
+### REST API 기본 규칙
+- URI는 정보의 자원을 표현해야한다.
+  - resource는 동사보단 명사를, 대문자보다는 소문자를 사용한다.
+  - resource의 스토어 이름으로는 복수 명사를 사용해야한다.
+
+
+
+## Web API
+REST API 규칙이 잘 지켜지지 않은것은 Web API 라고 부를 수 있는데 몇가지 원칙이 존재한다.
+- URI는 정보의 자원을 표현해야하고
+- 자원에 대한 행위는 HTTP Method 로 표현해야한다.
