@@ -3,9 +3,7 @@
 **FE 기술요구사항**
 
 - [x]  html layout tag를 사용
-
-[시맨틱 태그](https://www.notion.so/f76310384e0046de9ad82ebc591f3e61)
-
+    - 시맨틱 태그(header, nav, section, article, aside, footer)
 - [ ] classname은 일정한 컨벤션을 유지
     - 잘 모르겠음
 - [x] 의미에 맞는 tag를 최대한 사용하되, div 사용은 최대한 자제할 것
