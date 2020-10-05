@@ -26,5 +26,22 @@ Inversion of Control 의 약자로 제어의 역전이라고도한다.
 - 이 흐름의 제어를 개발자가 하는것이 아니라 다른 프로그램이 그 흐름을 제어하는것
 - 아직 무슨소린지 잘 모르겠음....
 
+## IoC 용어 정리
+### bean
+스프링에서 제어권을 가지고 직접 만들어 관계를 부여하는 오브젝트
+
+### bean factory
+스프링의 IoC를 담당하는 핵심 컨테이너  
+Bean 을 등록 / 생성 / 조회 / 반환 / 관리 한다. 보통 bean factory를 바로 사용하지않고 이를 확장한 application context를 이용한다.
+
+### application context
+bean factory를 확장한 IcO 컨테이너  
+Bean의 등록  / 생성 / 조회 / 반환 / 관리 기능은 bean factoryㅈ와 같지만 추가적으로 spring의 각종 부가 서비스를 제공한다.  
+ApplicationContext 는 application context 가 구현해야하는 interface이며, BeanFactory를 상속한다.
+
+### configuration metadata
+application context 혹은bean factory가 IoC를 적용하기 위해 사용하는 메타정보  
+스프링의 설정정보는 컨테이너에 어떤 기능을 세팅하거나 조정하는 경우에도 사용하지만 주로 bean을 생성/구성하는 용도로 사용한다.
+
 ## DI
 Dependency Injection 의존성 주입 이란 뜻을 갖고 있으며 클래스사이의 의존관계를 빈 설정 정보를 바탕으로 컨테이너가 자동으로 연결해주는것을 말함.
