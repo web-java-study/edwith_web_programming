@@ -1,0 +1,82 @@
+body {
+  background-color: #ccc;
+}
+
+header .topMenu {
+  background-color: White; /*자식영역까지 색상이 모두 변경되므로, 버튼 색상 변경해야 함.*/
+}
+
+/*ul 태그에 마우스 커서를 변경해버리면 ul 영역 전체가 마우스 커서로 변경이 됌*/
+header .topMenu ul {
+  list-style-type: none;  /*가로 메뉴바의 list 태그 볼릿 삭제*/
+  display: flex; /* row 방향으로 나열 */
+  flex-direction:row-reverse; /*오른쪽 방향으로 나열*/
+  padding: 10px; /*ul 태그 영역을 넓힘.*/
+}
+
+/*9행, 따라서 li 태그에 설정*/
+li {
+  cursor: pointer; /*마우스 커서 변경*/
+  border: 1px solid #bcbcbc; /*버튼의 테두리*/
+  box-shadow: 2px 2px 3px #929292; /*그림자 효과*/
+  padding: 10px 5px 15px 5px; /*순차적으로 위, 오른쪽, 아래, 왼쪽, 아래쪽을 크게 잡아준 이유는 텍스트가 아래로 내려가 있음*/
+  margin-right: 5px; /*버튼 사이 간격*/
+  border-radius: 5%; /*버튼 모서리 둥글게*/
+  width:60pt; /*버튼의 크기를 동일하도록*/
+  height:10pt;
+  text-align: center; /*텍스트 가운데 정렬*/
+}
+
+a {
+  text-decoration: none; /*밑줄 제거*/
+}
+
+.btn button {
+  background-color: white;
+  cursor: pointer; /*마우스 커서*/
+  border: 1px solid #bcbcbc; /*버튼 */
+  box-shadow: 2px 2px 3px #929292; /*버튼의 그림자 효과*/
+  padding: 10px; /*버튼 안쪽 여백*/
+  margin-right: 5px; /*버튼 사이 간격*/
+  border-radius: 5%; /*버튼의 그림자*/
+  width:60pt; /*두 개의 버튼이 정사각형이 되도록*/
+  height:60pt;
+}
+
+
+.subject {
+  background-color: White;
+  text-align: center; /*subject 요소 전체 가운데 정렬*/
+  padding: 10px; /*subject 요소 영역을 넓힘*/
+}
+
+.subject_02 {
+  background-color: White;
+  padding: 10px; /*subject 요소 영역을 넓힘*/
+  text-align: center; /*텍스트를 수직으로 가운데 정렬하는 방법은 무엇일까*/
+}
+
+.subject_03 {
+  background-color: White;
+  padding: 10px; /*subject 요소 영역을 넓힘*/
+  text-align: center; /*텍스트를 수직으로 가운데 정렬하는 방법은 무엇일까*/
+}
+
+.map {
+  text-align: center; /*이미지 가운데 정렬은 부모 자식에 속성을 주어야 함*/
+  background-color: White;
+  padding-bottom: 30px;
+}
+
+image {
+  border: 3px solid #bcbcbc;
+}
+
+footer {
+  text-align: center;
+  background-color: White;
+  padding-bottom:10px; /* footer 영역을 넓힘*/
+  padding-top:10px;
+  margin-top:20px;
+  color: #ccc; /*폰트 색상 변경*/
+}
