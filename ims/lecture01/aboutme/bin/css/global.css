@@ -89,20 +89,13 @@ padding으로 텍스트 세로 가운데 정렬하기
 .photo {
     background: white;
     margin: 20px;
-    padding: 30px;
+    padding: 30px;    
+    display: flex;          /* 컨텐츠용 flex박스 만들기 */
+    flex-direction: column; /* 세로로 쌓기 */
+    align-items: center;    /* 수직축 방향 정렬 */
+    text-align: center;     /* 가운데 정렬 */
 }
 
-.photo_section {
-    display: flex;              /* 컨텐츠용 flex박스 만들기 */
-    align-items: flex-start;    /* 수직축 방향 정렬 */
-    margin: 10px;
-}
-
-.photo_img {
-    display: block;
-    width: 150px;
-    height: 150px;
-}
 
 .footer {
     background: white;
