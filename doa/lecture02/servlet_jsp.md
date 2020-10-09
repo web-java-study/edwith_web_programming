@@ -83,14 +83,6 @@ out.write("\r\n");
 1부터 10까지의 합 : <%=total %>
 ```
 
-## 생각해보기
-
-→ JSP가 Servlet으로 변환되는 과정 (실행순서X)
-→ 호출된 JSP 파일을 Jasper가 컴파일을 한 후 다시 HTML에 그려주는 과정을 거친다. (좀 더 알아볼 것)
-
-Q. JSP의 주석을 JSP 영역에서 사용하면 실행이 되지 않음.
-- 스크립트릿 등의 영역에서 JSP 주석을 사용하면 결국 java로 변환되기 때문에 실행이 되지 않는 거 아닐까?
-
 ## JSP 스크립트 요소
 
 선언문 : <%! %> 전역변수, JSP 페이지에서 필요한 멤버 변수나 메소드가 필요할 때 선언하여 사용하는 요소
@@ -99,7 +91,7 @@ Q. JSP의 주석을 JSP 영역에서 사용하면 실행이 되지 않음.
 
 표현식 : <%= %> 화면에 출력할 내용 기술에 사용, JSP 페이지에서 웹 브라우저에 출력할 부분을 표현, 출력할 부분은 내장객체인 out 객체의 print() 혹은 println() 메소드를 사용해서 출력
 
-### JSP 스크립트릿, 선언식의 예제
+## JSP 스크립트릿, 선언식의 예제
 
 ```jsx
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -136,7 +128,7 @@ hello ~~
 
 위 코드의 전역 스코프 영역은 다음과 같이 변환된다.
 
-### 서블릿으로 변환된 JSP member field 영역
+## 서블릿으로 변환된 JSP member field 영역
 
 ```jsx
 <%-- 서블릿으로 변환된 JSP의 전역 스코프 영역 --%>
@@ -163,7 +155,7 @@ public final class lifecycle_jsp extends org.apache.jasper.runtime.HttpJspBase
 --%>
 ```
 
-### JSP 선언문(Declaration) 예제
+## JSP 선언문(Declaration) 예제
 
 ```jsx
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -187,7 +179,7 @@ id : <%=getID() %>
 </html>
 ```
 
-### JSP 선언문 Servlet 변환
+## JSP 선언문 Servlet 변환
 
 ```jsx
 package org.apache.jsp;
@@ -226,7 +218,7 @@ out.write("\r\n");
       out.write("</html>");
 ```
 
-### JSP 스크립트릿(Scriptlet) 예제
+## JSP 스크립트릿(Scriptlet) 예제
 
 ```jsx
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -252,7 +244,7 @@ out.write("\r\n");
 </html>
 ```
 
-### JSP 표현식과 스크립트릿 Servlet 변환
+## JSP 표현식과 스크립트릿 Servlet 변환
 
 ```jsx
 for (int i = 1; i <= 5; i++) {
