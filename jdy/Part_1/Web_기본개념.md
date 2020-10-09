@@ -1,4 +1,4 @@
-#### **목차**
+### **목차**
 
 ---
 
@@ -8,7 +8,7 @@
 -   도메인 주소
 -   포트 주소
 
-#### **URL**
+### **URL**
 
 ---
 
@@ -44,11 +44,10 @@ URL은 크게 3가지로 구성되어 있다.
 
 <table style="border-collapse: collapse; width: 100%; height: 56px;" border="1"><tbody><tr style="height: 16px;"><td style="width: 13.3721%; height: 16px; text-align: center;">&nbsp;URL</td><td style="width: 86.6281%; height: 16px; text-align: center;" colspan="5"><u><a href="https://ko.wikipedia.org/wiki/URL">https://ko.wikipedia.org/wiki/URL</a></u></td></tr><tr style="height: 20px;"><td style="width: 13.3721%; height: 40px; text-align: center;" rowspan="2">구조</td><td style="width: 19.9613%; height: 20px; text-align: center;">https</td><td style="width: 7.48056%; height: 20px; text-align: center;">://</td><td style="width: 30.8528%; height: 20px; text-align: center;">ko.wikipedia.org</td><td style="width: 11.6667%; height: 20px; text-align: center;">/</td><td style="width: 16.6667%; height: 20px; text-align: center;">wiki/URL</td></tr><tr style="height: 20px;"><td style="width: 19.9613%; height: 20px; text-align: center;">프로토콜</td><td style="width: 7.48056%; height: 20px; text-align: center;">&nbsp;</td><td style="width: 30.8528%; height: 20px; text-align: center;">도메인 주소</td><td style="width: 11.6667%; height: 20px; text-align: center;">&nbsp;</td><td style="width: 16.6667%; height: 20px; text-align: center;">자원 위치&nbsp;</td></tr></tbody></table>
 
-#### **HTTP**
+### **HTTP**
 
 ---
 
-[##_Image|kage@m8jC9/btqIqnkRVTW/d8Ez0lT64YoYTwSLZU7KHK/img.png|alignCenter|data-filename="다운로드 (1).png" data-origin-width="1280" data-origin-height="556" data-ke-mobilestyle="widthContent"|||_##]
 
 **1) http 란?** 
 
@@ -88,7 +87,7 @@ http는 **무상태 프로토콜**이며, **stateless(****무상태)** **방식*
 
 (이러한 단점을 보완하기 위해서 cookie라는 기술이 등장한다.)
 
-#### **IP 주소**
+### **IP 주소**
 
 ---
 
@@ -104,7 +103,7 @@ IP 주소의 형식은 예를 들어, ****[2606:4700:4700:0000:0000:0000:0000:11
 
 하지만 IP 주소 형식은 외우거나 구별하기 어렵기 때문에, **DNS를 통해** 구별하기 쉬운 **도메인 주소로 변환**된다.
 
-#### **도메인 주소**
+### **도메인 주소**
 
 ---
 
@@ -114,7 +113,7 @@ IP 주소의 형식은 예를 들어, ****[2606:4700:4700:0000:0000:0000:0000:11
 
 <table style="border-collapse: collapse; width: 100%;" border="1"><tbody><tr><td style="width: 50%; text-align: center;">IP 주소</td><td style="width: 50%; text-align: center;">도메인 주소</td></tr><tr><td style="width: 50%; text-align: center;"><span style="color: #666666;">115.68.24.88</span></td><td style="width: 50%; text-align: center;"><span style="color: #666666;">opentutorials.org</span></td></tr><tr><td style="width: 50%; text-align: center;"><span style="color: #666666;">220.95.233.172</span></td><td style="width: 50%; text-align: center;"><span style="color: #666666;">naver.com</span></td></tr><tr><td style="width: 50%; text-align: center;"><span style="color: #666666;">114.108.157.19</span></td><td style="width: 50%; text-align: center;"><span style="color: #666666;">daum.net</span></td></tr></tbody></table>
 
-#### **포트 주소**
+### **포트 주소**
 
 ---
 
