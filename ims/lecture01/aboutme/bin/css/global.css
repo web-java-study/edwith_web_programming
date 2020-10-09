@@ -1,0 +1,107 @@
+@charset "UTF-8";
+
+/* 태그마다 기본 속성이 있다. */
+
+* {
+    box-sizing: border-box; /* 테두리를 기준으로 크기를 정합니다. */
+}
+
+body {
+    background: skyblue;
+}
+
+#wrap {
+    /* background: white; */
+}
+
+/* Flex 컨테이너에 display: flex;를 적용 */
+.nav {
+    display: flex;
+    background: white;
+    margin: 20px;
+}
+
+
+.nav ul {
+    display: flex;      /* nav가 가로로 가로로 정렬됨 */
+    list-style: none;   /* 점 지우기 */
+    margin-left: auto;  /* 오른쪽 정렬 */
+}
+
+.nav li {
+    background: olivedrab;
+    flex:1;             /* flex: 1(grow커짐) 1(shrink줄어듦) 0(basis고정, auto가 가변)   flex item이 빈 공간을 채운다   */
+    width:100px;        /* 네모칸 크기 지정 */
+    height: 50px;       /* 네모칸 크기 지정 */
+    line-height: 50px;  /* 글자 아래로 내리기 */
+    text-align: center; /* 가운데 정렬 */
+    margin: 10px;       /* li 간격 띄우기 */
+}
+
+.nav li a {
+    color: white;           
+    text-decoration: none;  /* 하이퍼링크 밑줄 없애기   */
+}
+
+
+.contents {
+    background: white;
+    margin: 20px;
+    padding: 30px;    
+    display: flex;          /* 컨텐츠용 flex박스 만들기 */
+    flex-direction: column; /* 세로로 쌓기 */
+    align-items: center;    /* 수직축 방향 정렬 */
+    text-align: center;     /* 가운데 정렬 */
+}
+/*
+padding으로 텍스트 세로 가운데 정렬하기
+.button {
+    display: flex;        버튼용 flex박스 만들기 
+    flex-direction: row;  가로로 쌓기 
+}
+
+.button div{
+    width: 100px;
+    background: olivedrab;
+    color:white;
+    box-shadow: 3px 3px 6px 2px rgba(0, 0, 0, 0.3);      그림자 
+    cursor: pointer;                                     손가락 모양 마우스 
+    margin-bottom: 20px;
+    padding: 40px 0;
+}
+*/
+.button {
+    margin-bottom: 20px;
+    border-spacing:10px 0;
+}
+.button div{
+    display: table-cell;
+    vertical-align: middle;
+    width: 100px;
+    height: 100px;  /* 정사각형을 만들고 싶을 때 */
+    background: olivedrab;
+    color:white;
+    box-shadow: 3px 3px 6px 2px rgba(0, 0, 0, 0.3);    
+    cursor: pointer;
+    padding: 10px;
+}
+
+.photo {
+    background: white;
+    margin: 20px;
+    padding: 30px;    
+    display: flex;          /* 컨텐츠용 flex박스 만들기 */
+    flex-direction: column; /* 세로로 쌓기 */
+    align-items: center;    /* 수직축 방향 정렬 */
+    text-align: center;     /* 가운데 정렬 */
+}
+
+
+.footer {
+    background: white;
+    margin: 20px;
+    padding: 20px;
+}
+.footer p {
+    text-align: center;
+}
