@@ -124,3 +124,20 @@ protected void service(HttpServletRequest request, HttpServletResponse response)
 ![redirect와 forward]([https://doublesprogramming.tistory.com/63](https://doublesprogramming.tistory.com/63))
 
 또한 redirect는 URI 가 변하고 forward는 변하지 않는 것을 확인할 수 있음.
+
+## Redirect 와 Forward 적용 사례
+*Forward*
+웹 브라우저에는 최초에 호출한 URL이 표시되고, 이동한 페이지의 URL 정보는 확인이 어렵다.
+현재 실행중인 페이지와 forward에 의해 호출될 페이지를 Request 객체와 Response 객체를 공유하는 Forward 방식은 어떤 때에 사용이 될까?
+
+ - 게시판을 작성하는 과정에서 사용자가 보낸 요청 정보를 이용하여 글쓰기 기능을 수행하여 forward를 사용하여 응답 페이지를 부르면 다음과 같은 문제가 발생할 수 있다.
+  - 클라이언트가 실수 혹은 고의로 글쓰기 응답 페이지에서 새로고침을 눌러버릴 경우, 요청 정보가 그대로 살아있어 요청이 여러번 전달되어 동일한 게시물이 여러번 등록이 될 수 있다.
+  - 하여 게시판을 제작하는 과정에서는 시스템에 변화가 생기지 않는 **단순 조회 요청(글 목록 보기, 검색)** 의 경우에 forward를 사용한다.
+  
+*Redirect*
+URL을 지시된 주소로 바꾸고 해당 주소로 이동한다.
+다른 웹 컨테이너에 있는 주소로 이동하며 새로운 페이지에서는 Request와 Response 객체가 새롭게 생성되는 Redirect 방식은 어떤 때에 사용이 될까?
+
+ - 게시판을 작성하는 과정에서 사용자가 보낸 요청 정보를 이용하여 글쓰기 기능을 수행하여 redirect를 사용하여 응답 페이지를 부르면 다음과 같이 사용될 수 있다.
+  - 사용자가 실수 혹은 고의로 글쓰기 응답 페이지에서 새로고침을 누른다고 하더라도, 처음의 요청 정보는 가지고 있지 않으므로 게시판이 여러번 등록되지 않는다.
+  - 하여 **시스템에 변화가 생기는 요청(회원가입, 글쓰기 등)** 의 경우에는 redirection 을 사용한다.
