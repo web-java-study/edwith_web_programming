@@ -272,10 +272,12 @@ switch 구문을 html 에서 태그로 표현하기 위한 문법이 아닐까 �
 >examples.sql  
 https://github.com/perm4/examples  
 MySQL 8버전  
+dburl = "jdbc:mysql://localhost:3306/connectdb?serverTimezone=Asia/Seoul&useSSL=false";
 create user 'connectuser'@'localhost' identified by 'connect123!@#';  
 create user 'connectuser'@'%' identified by 'connect123!@#';  
 grant all privileges on connectdb.* to 'connectuser'@'localhost';  
 grant all privileges on connectdb.* to 'connectuser'@'%';  
+ALTER USER connectuser@'localhost' IDENTIFIED WITH mysql_native_password BY 'connect123!@#';
 flush privileges;  
 
 
