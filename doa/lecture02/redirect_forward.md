@@ -111,25 +111,15 @@ protected void service(HttpServletRequest request, HttpServletResponse response)
 
 아래는 redirect와 forward의 차이점을 찾아보다가 발견한 내용. 일상생활의 친근한 개체로 비유하여 설명한 내용이다.
 
-1) redirect
-
-[TIP]
-
+**1) redirect**
 1. 고객이 고객센터로 상담원에게 123번으로 전화를 건다.
 2. 상담원은 고객에게 다음과 같이 이야기한다. "고객님 해당 문의사항은 124번으로 다시 문의주겠어요?"
 3. 고객은 다시 124번으로 문의해서 일을 처리한다.
 
-[/TIP]
-
-2) forward
-
-[TIP]
-
+**2) forward**
 1. 고객이 고객센터로 상담원에게 123번으로 전화를 건다.
 2. 상담원은 해당 문의사항에 대해 잘 알지 못해서 옆의 다른 상담원에게 해당 문의사항에 답을 얻는다.
 3. 상담원은 고객에게 문의사항을 처리해준다.
-
-[/TIP]
 
 ![redirect와 forward]([https://doublesprogramming.tistory.com/63](https://doublesprogramming.tistory.com/63))
 
