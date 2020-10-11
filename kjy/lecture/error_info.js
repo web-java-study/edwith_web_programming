@@ -85,7 +85,7 @@ check_time();
 //forward 는 request 로 받은 데이터를 가공하거나 날것의 형태로 다른 서블릿으로 재전송하는 것
 
 //el 표기법 나누기는 div 
-//empty empty 는 배열, 맵, collection, 등 빈문자열 이외의 경우에는 false 를 리턴
+//empty 는 배열, 맵, collection, 등 빈문자열 이외의 경우에는 false 를 리턴
 
 //jstl 이 되지 않을때 
 //설치전에 apache 공홈에서 1.25 jstl tag library jar 파일을 WebContent/lib 에 저장
@@ -122,7 +122,7 @@ check_time();
 
 //jdbc 설정중 아래의 에러가 발생할경우
 //establishing ssl connection without server's identity verification is not recommended
-//DriverManager url 값을 tring dburl = "jdbc:mysql://localhost:3306/connectdb?allowPublicKeyRetrieval=true&serverTimezone=Asia/Seoul&useSSL=false"; 수정
+//DriverManager url 값을 String dburl = "jdbc:mysql://localhost:3306/connectdb?allowPublicKeyRetrieval=true&serverTimezone=Asia/Seoul&useSSL=false"; 수정
 
 // caching_sha2_password authentication plugin 
 // ALTER USER 'yourusername'@'localhost' IDENTIFIED WITH mysql_native_password BY 'youpassword';
@@ -176,3 +176,5 @@ check_time();
 	    <url-pattern>*.swf</url-pattern>
 </servlet-mapping>*/
 
+//xhr 설명
+//https://java119.tistory.com/4

@@ -1,0 +1,160 @@
+header>.index_top{
+	display:flex;
+	justify-content: space-between;
+	width:59rem;
+	margin :0 auto;	
+}
+
+header>.index_top>div:nth-child(2){
+	padding : 3rem 0rem;
+}
+
+header>.index_top>div:first-child{
+	-webkit-transform : rotate(340deg);
+	-webkit-transform-origin: left top;
+	position:relative;
+	left:0;
+	top:4.5rem;
+	padding:1rem 0rem;;
+	font-size:2rem;
+	font-color:#173F5F;
+	font-weight: bold;
+}
+
+
+header>.index_top>div:nth-child(2)>input{
+	width:10rem;
+	height:2.5rem;
+	color:white;
+	background-color: #173F5F;
+	border-radius: 7px;
+	border : none;
+}
+
+
+section>div{
+	position: relative;
+	display:flex;
+	justify-content: space-between;
+	width:59rem;
+	margin :0 auto;
+}
+
+section>div>div{
+	display:block;
+	width:31%
+}
+
+section>div>div>div:first-child{
+	background-color:#173F5F ;
+	color :white;
+	text-align: center;
+	vertical-align: middle;
+	padding : 2rem 0;
+	height:2rem;
+	
+	font-weight:bold;
+
+	border-radius : 1rem;
+	box-shadow: 0 0.5rem 2rem grey;
+	margin-bottom: 0.5rem;
+}
+
+section>div>div>div{
+	background-color: #3CAEA3;
+	color :white;
+	padding : 10px 0;
+	
+	border-radius : 15px;
+	box-shadow: 0 5px 15px grey;
+	margin-bottom: 0.5rem;
+	height:6rem;
+}
+
+section>div>div>div>div{
+	font-size:0.8rem;
+	padding:0 0.7rem;
+	text-align: start;
+}
+
+
+section>div>div>div>div>.list_title{
+	font-size: 1rem;
+	font-weight: bold;	
+}
+
+/*등록페이지*/
+#register{
+	text-align: center;
+	width:59rem;
+	margin: 1rem auto;
+	font-size:1.5rem;
+	font-weight:bold;
+	font-color:#173F5F
+}
+
+#form{
+	text-align: left;
+	width : 70%;
+	margin: 0 auto;
+	font-size: 1rem;
+	
+}
+
+#form>form{
+	width:100%;
+	border : 1px solid #173F5F;
+}
+
+
+#form>form>div:last-child{
+	display:flex;
+	justify-content: space-between;
+}
+
+
+#form>form>div{
+	margin: 2rem 2rem;
+}
+
+#form>form>div>label{
+	display:block;
+	font-size:1rem;
+	margin-bottom: 0.7rem;
+	font-weight: bold;
+	
+	
+}
+
+#form>form>div>input{
+	font-size:1rem;
+	font-weight: bold;
+	height: 2rem;
+}
+
+#form>form>div>input::placeholder{
+	font-style:italic;
+}
+
+#form>form>div>div>input{
+	font-size:1rem;
+	font-weight: bold;
+	padding-left:1rem;
+	padding-right:1rem;
+	background-color: #173F5F;
+	color:white;
+	border-radius: 7px;
+	border:none;
+	padding :0.5rem 1rem;
+}
+
+#pre_btn{
+	font-size:1rem;
+	font-weight: bold;
+	background-color: white;
+	padding :0.5rem 1rem;
+	border-radius: 7px;
+}
+
+
+
