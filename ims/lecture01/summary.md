@@ -193,3 +193,19 @@
 - servlet의 service()(doGet(), doPost()) 메서드로 동적 페이지를 생성하고
 - 결과값을 HttpServletReponse에 담아 
 - WAS -> 웹 서버 -> 클라이언트 로 전달한다.
+
+## 5. css 작업 Tip
+- 태그 작업 시 백그라운드컬러를 주고 작업하기
+- 태그가 가진 기본 속성 이해하기 -> 없애고 작업하는 것이 편해 reset.css nomalize.css 등을 활용한다
+- 브라우저마다 css가 다르게 보임을 이해하기 
+- float대신에 flex박스 활용하기 (ms는 pre-fix)
+- 처음에 큰 그림을 손으로 그린다고 생각하고 만들기
+- inline block에 주의하기
+- button이 여러개 이면 div로 묶어주기
+- 개체 추가를 염두해두기 (id="id_wrap" 이 정도만 쓰고 나머지는 보통 class를 써준다)
+- global.css를 두고 페이지별로 css를 쓰거나 class명을 줘서 구분하기
+- SCSS는 css로 컴파일해서 사용하기
+- var은 전역변수로 잘 쓰지 않고, const나 let을 사용한다. (scope를 생각하며 코드를 작성하자
+- 박스를 만들 때는 width, height로 고정시키기 (그렇지 않으면 텍스트에 따라 상자 크기가 달라진다)
+- hr태그와 br태그는 자제하기 (p태그와 같은 태그를 사용하며 css 속성으로 대체하기)
+- line-height 인라인 박스의 높이 지정하기
