@@ -92,6 +92,7 @@ lerna-debug.log
 Thumbs.db
 
 ## JAVA
+.metadata
 
 # Compiled class file
 *.class

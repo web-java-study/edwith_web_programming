@@ -125,3 +125,48 @@ public class Role {
 }
 ```
 위와 같은 형식으로 원칙을 지켜 만드는것을 자바빈 이라고도 부른다.
+
+# DAO (Data Access Object)
+데이터베이스의 데이터에 접근하기 위한 객체
+
+데이터베이스와의 연결로직을 갖고있고 이를통해 다양한 메소드를 작성하여 servlet 이나 메인에서 실행하도록 만들 수 있다. 
+  
+예를 들면 데이터베이스에 정보 추가 (addInfo), 정보수정 (infoUpdate), 정보삭제 (infoDelete) 같은 메소드들을 만들어 사용 할 수 있다.
+
+```java
+public class DAO {
+    // db 연결 데이터 변수 설정
+    private static String dburl = "jdbc:mysql://localhost:3306/connectdb?serverTimezone=Asia/Seoul&useSSL=false";
+	private static String dbUser = "test";
+	private static String dbpassword="123456789";
+
+    // 메소드 정의
+    public int addInfo(DTO dto) {
+        int insertCount = 0;
+
+        try {
+			Class.forName("com.mysql.jdbc.Driver");
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+
+        String sql = "INSERT INTO todo(title, name, sequence) VALUES(?,?,?)";
+
+        try (
+			Connection conn = DriverManager.getConnection(dburl, dbUser, dbpassword);
+			PreparedStatement ps = conn.prepareStatement(sql)
+		) {
+			ps.setString(1, todo.getTitle());
+			ps.setString(2,  todo.getName());
+			ps.setInt(3, todo.getSequence());
+			
+			insertCount = ps.executeUpdate();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+        return insertCount;
+    }
+}
+```
