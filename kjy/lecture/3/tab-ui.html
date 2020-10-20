@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<style>
+
+		h2{
+			text-align: center;
+		}
+
+		h2, h4{
+			margin:0px;
+		}
+		
+		.tabmenu{
+			background-color : bisque;
+
+		}
+
+		.content{
+			padding:5%;
+			background-color: antiquewhite;
+		}
+
+		.tabmenu>div{
+			display: inline-block;
+			width:145px;
+			text-align: center;
+			height:50px;
+			line-height: 50px;
+			cursor: pointer;
+		}
+
+		.tab{
+			width:600px;
+			margin : 0 auto;
+		}
+
+	</style>
+</head>
+<body>
+	<h2> tab ui test</h2>
+	<div class="tab">
+		<div class="tabmenu">
+			<div>cron</div>
+			<div>kj</div>
+			<div>pobi</div>
+			<div>honux</div>
+		</div>
+		<section class="content">
+			<h4>hello jk</h4>
+			<p>lordajflasjdfasldhf lhlhsdlhflskdflk 
+				hsldkhflahsdlfh alshdlhf alkdh l
+			</p>
+		</section>
+	</div>
+
+	<script id = "template-data" type="text/template" >
+		<h4>{title}</h4>
+		<p>{content}</p>
+	</script>
+
+	<script>
+		var data = [
+			{	
+				name : "cron",
+				title : "1",
+				content : "1111111111111111111111"
+			},
+
+			{
+				name : "kj",
+				title : "2",
+				content : "22222222222222"
+			},
+
+			{
+				name : "pobi",
+				title : "3",
+				content : "33333333333333333"
+			},
+			
+			{
+				name : "honux",
+				title : "4",
+				content : "444444444444444444444444"
+			}
+
+		]
+
+		var html = document.getElementById("template-data").innerHTML;
+		var parent_sel = document.querySelector(".tabmenu").children;
+		var content = document.querySelector(".content");
+		var count = 0;
+		for(var i=0;i<parent_sel.length;i++){
+			//console.log(parent_sel[i]);
+			count++;
+			parent_sel[i].addEventListener("click", function(e){
+				
+				data.forEach(function(v,t){
+					if(v.name ==e.target.innerText){
+						chage_tab(t);
+					}
+				});
+				console.log(e.target.innerText);
+				//chage_tab(i);
+			})
+		}
+		
+		
+		
+		function chage_tab(num){
+			console.log(num)
+
+			var result = html.replace("{title}", data[num].title).
+			replace("{content}", data[num].content);
+
+			content.innerHTML = result;
+		}
+
+	</script>
+</body>
+</html>

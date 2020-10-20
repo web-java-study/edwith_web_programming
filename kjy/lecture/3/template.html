@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	<h2>templatetest</h2>
+	<ul class = "content"></div>
+</body>
+<script id = "template-list-item" type="text/template">
+	<li>
+		<h4>{title}</h4><p>{content}</p><div>{price}</div>
+	</li>
+	
+</script>
+<script>
+
+	var data = [
+	
+	{
+	title : "hello",
+	content : " lorem",
+	price : 2000
+	}
+	,
+	{
+		title : "hello",
+		content : " lorem",
+		price : 2000
+	}
+]
+
+	var html = document.querySelector("#template-list-item").innerHTML;
+	var resulthtml2 ="";
+	data.forEach(function(v){
+		resulthtml2 += html.replace("{title}",v.title)
+					.replace("{content}",v.content)
+					.replace("{price}",v.price)
+	});
+
+	var resulthtml = html.replace("{title}",data.title)
+					.replace("{content}",data.title)
+					.replace("{price}",data.title)
+
+	document.querySelector(".content").innerHTML=resulthtml2;
+</script>
+
+</html>
