@@ -359,7 +359,7 @@ mysql> select empno, name from employee order by name;
 14 rows in set (0.00 sec)
 
 -> 뒤에서부터 정렬
-mysql> select empno, name from employee order by name desc;
+mysql> select empno, name from employee order by name desc; 
 +-------+--------+
 | empno | name   |
 +-------+--------+
