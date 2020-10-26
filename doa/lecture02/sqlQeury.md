@@ -653,10 +653,14 @@ URL : http://bit.ly/join-exec
 ```json
 SELECT * FROM TableA A LEFT JOIN TableB B ON A.key = B.key WHERE B.key IS NULL
 ```
-SELECT * FROM topic 
+SELECT * FROM topic
+
 SELECT * FROM topic LEFT JOIN author ON topic.author_id = author.aid
+
 SELECT * FROM topic LEFT JOIN author ON topic.author_id = author.aid LEFT JOIN profile ON author.profile_id = profile.pid;
+
 SELECT tid, topic.title, author_id, name, profile.title AS job_title FROM topic LEFT JOIN author ON topic.author_id = author.aid LEFT JOIN profile ON author.profile_id = profile.pid;
+
 SELECT tid, topic.title, author_id, name, profile.title AS job_title FROM topic LEFT JOIN author ON topic.author_id = author.aid LEFT JOIN profile ON author.profile_id = profile.pid WHERE aid = 1;
 
 
