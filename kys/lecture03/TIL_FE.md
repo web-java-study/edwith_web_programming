@@ -95,3 +95,54 @@ slice();
 ```
 
 위 메소드들이 for 나 forEach 와 다른점은 배열로 값을 리턴하는것이고 일부 메소드는 원본 데이터에 영향을 미치기도하고 일부는 새로운 배열데이터를 리턴해 주기도 한다.
+
+배열 메소드를 사용하느데 있어서 주의할점은 IE 하위버전에서 동작하지않는 메소드들이 있기떄문에 해당 부분을 체크하고 사용해야만 한다.
+
+
+
+## 자바스크립트의 객체
+자바스크립트에서 일반적으로 객체라고 부르는 형태는 `{key: value}` 처럼 key 와 value 의 형태를 가진것을 객체 라고 한다. 자바스크립트에서는 모든 타입에 대해서 객체취급하는 부분이 있긴한데 여기서 설명하는 객체는 항상 key 와 value 를 가진것을 기준으로 설명한다.
+
+```javascript
+const object = {
+    name: '홍길동',
+    age: 34,
+    job: 'programmer',
+    lang: 'javascript',
+}
+```
+객체는 일반적으로 위와같은 형태를 가질 수 있으며 객체의 특정값을 불러오는 방법은 
+```javascript
+object.name // '홍길동'
+object.age // 34
+object.job // 'programmer'
+```
+위와같은 형식으로 불러와 사용 할 수 있다.
+
+### 객체에서 키값만 가져오기
+```javascript
+Object.keys(object) // ['name', 'age', 'job', 'lang']
+```
+만약 객체의 데이터가 수십개 수백개가 된다면 매번 `object.name` 이렇게 찍어서 가져오게되면 코드라인이 엄청 많아지고 나중에 키값이 바뀌거나했을때 유지보수하기도 매우 어려워진다.
+
+이럴때 객체의 키값만 가져와 배열의 메소드를 사용하여 간단하게 처리 할 수 있다.
+```javascript
+const object = {
+    name: '홍길동',
+    age: 34,
+    job: 'programmer',
+    lang: 'javascript',
+}
+const keys = Object.keys(object);
+
+keys.map(key => {
+    console.log(object[key])
+    /*
+    이러한 형태로 내부에서 반복적으로 실행되게 된다.
+    object['name']
+    object['age']
+    object['job']
+    */
+})
+```
+위와같은 방식으로 코드를 작성하면 혹시 키값이 바뀌더라도 값을 출력하는 로직에 대해서 수정할 필요는 전혀 없게된다. 
