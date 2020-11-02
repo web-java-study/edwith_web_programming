@@ -78,7 +78,26 @@ HTTP 의 BODY 에 문자 내용을 직접 반환
 기본 객체 처리는 JSON 형태로 자동으로 반환
 
 ## 스프링부트 테스트코드 작성 방법
+```java
+@Test
+    void 회원가입() {
+        // given
+        Member member = new Member();
+        member.setName("spring");
 
+        // when
+        Long saveId = memberService.join(member);
+
+        // then
+        Member findMember = memberService.findOne(saveId).get();
+        org.assertj.core.api.Assertions.assertThat(member.getName()).isEqualTo(findMember.getName());
+    }
+```
+`@Test` 를 시작으로 테스트코드를 작성하게되고 반환값이 따로 필요없기때문에 void로 작성된다.  
+테스트코드는 프로덕션으로 배포되는 코드가 아니므로 한글로 작성되어도 무방하다.  
+javascript 에서는 `describe > it > 테스트코드작성` 방식인데 자바는 코드를 짜는것과 동일한 형태로 작성하는것으로 보여진다.
+  
+given / when / then 형식으로 초반엔 형식을 잡아놓고 작성하는것이 습관만들기에 좋으며 좀더 명확한 테스트코드 작성이 가능하다.
 
 
 ## Spring boot jdbc template
@@ -158,3 +177,53 @@ public class JdbcTemplateMemberRepository implements MemberRepository {
 }
 
 ```
+
+
+
+## edwith 와 인프런 spring 강좌의 프로젝트 구조 차이점
+edwith 에서는 DTO와 DAO 를 폴더명으로 만들며 구조를 잡았는데 인프런에서 실무개발자가 해주는 강좌에서는  
+controller / domain / repository / service 의 폴더구조로 프로젝트를 진행 하였다.  
+  
+**controller**  
+주로 api 접근에 대한 로직을 작성하는곳으로 `@Controller` 로 명시하고 코드를 작성한다.  
+@GetMapping("test") 이러한 형식으로 접근 url을 지정하고 해당 url로 접근시 동작될 코드를 하단에 작성하게된다.  
+```java
+@GetMapping("hello")
+public String hello(Model model) {
+    model.addAttribute("data", "hello!!");
+    return "hello";
+}
+```
+
+**domain**  
+해당 프로젝트에서 사용될 값들을 정의하고 모델링하는곳이다. 
+```java
+public class Member {
+    private Long id;
+    private String name;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+}
+
+```
+
+**repository**  
+Interface 를 작성하고 작성한 Interface를 토대로 디비와의 연결작업과 쿼리를 컨트롤하는 코드를 작성한다.
+
+  
+**service**  
+실제 동작하게되는 서비스 로직을 작성하는곳이며 repository에 작성된 쿼리함수들을 실행하고 그 결과값을 리턴하는 로직이 작성된다.
