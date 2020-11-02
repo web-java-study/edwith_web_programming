@@ -76,3 +76,85 @@ Dependency Injection 의존성 주입 이란 뜻을 갖고 있으며 클래스�
 ### @ResponseBody 사용시
 HTTP 의 BODY 에 문자 내용을 직접 반환  
 기본 객체 처리는 JSON 형태로 자동으로 반환
+
+## 스프링부트 테스트코드 작성 방법
+
+
+
+## Spring boot jdbc template
+기존에 sql 쿼리를 날리는 코드를 사용하려면 굉장히 긴 코드가 나왔다. 그리고 그 내부에는 꽤 반복적으로 보이는 내용들도 있었다. `spring jdbc template` 는 이러한 반복적이고 긴 코드를 줄이고 쿼리문 작성에만 집중할 수 있도록 만들어준다.
+  
+close() 을 순서를 신경써가며 만들 필요 없고 try~catch 문같은 복잡한 문법또한 필요없다.
+
+```java
+package hello.hellospring.repository;
+
+import hello.hellospring.domain.Member;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowMapper;
+import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
+import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
+
+import javax.sql.DataSource;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Optional;
+
+public class JdbcTemplateMemberRepository implements MemberRepository {
+
+    //private final을 선언한 변수를 사용하면 재할당하지 못하며, 해당 필드, 메서드 별로 호출할 때마다 새로이 값이 할당(인스턴스화)한다.
+    private final JdbcTemplate jdbcTemplate;
+
+    // 생성자가 하나일떄는 오토와이어드 생략 가능
+   @Autowired
+    public JdbcTemplateMemberRepository(DataSource dataSource) {
+        this.jdbcTemplate = new JdbcTemplate(dataSource);
+    }
+
+    @Override
+    public Member save(Member member) {
+        SimpleJdbcInsert jdbcInsert = new SimpleJdbcInsert(jdbcTemplate);
+        jdbcInsert.withTableName("member").usingGeneratedKeyColumns("id");
+
+        Map<String, Object> parameters = new HashMap<>();
+        parameters.put("name", member.getName());
+
+        Number key = jdbcInsert.executeAndReturnKey(new MapSqlParameterSource(parameters));
+        member.setId(key.longValue());
+        return member;
+    }
+
+    // 테이블을 조회하는 코드는 단 세줄로 구현 가능하다.
+    @Override
+    public Optional<Member> findById(Long id) {
+        List<Member> result = jdbcTemplate.query("select * from member where id = ?", memberRowMapper(), id);
+        return result.stream().findAny();
+    }
+
+    @Override
+    public Optional<Member> findByName(String name) {
+        List<Member> result = jdbcTemplate.query("select * from member where name = ?", memberRowMapper(), name);
+        return result.stream().findAny();
+    }
+
+    @Override
+    public List<Member> findAll() {
+        return jdbcTemplate.query("select * from member", memberRowMapper());
+    }
+
+    // 여기서 해당하는 파라미터들의 객체를 생성해주는 역할을 한다.
+    private RowMapper<Member> memberRowMapper() {
+       return (rs, rowNum) -> {
+           Member member = new Member();
+           member.setId(rs.getLong("id"));
+           member.setName(rs.getString("name"));
+           return member;
+       }
+    }
+}
+
+```
