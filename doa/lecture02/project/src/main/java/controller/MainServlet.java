@@ -22,7 +22,10 @@ public class MainServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 		response.setCharacterEncoding("UTF-8");
-		response.setContentType("text/html; charset=UTF-8");
+		// response.setContentType("application/json");
+		
+//		List<Todo> list = dao.getTodos();
+//		
 		
 		PrintWriter out = response.getWriter();
 		out.println("<html>");

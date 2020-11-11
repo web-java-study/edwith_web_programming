@@ -21,7 +21,11 @@ public class TodoDto {
         this.title = title;
         this.type = type;
 }
-    public Long getId() {
+    public TodoDto(String title2, String name2, int sequence2) {
+		// TODO Auto-generated constructor stub
+	}
+
+	public Long getId() {
         return id;
     }
 
