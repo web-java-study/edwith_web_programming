@@ -9,7 +9,9 @@
 <ul id="todolist">
 <li><input type="checkbox"/></li>
 </ul>
-TODO
+<div id="dragdiv">TODO</div>
+dragElement(document.getElementById("dragdiv"));
+
 DOING
 DONE
 </body>

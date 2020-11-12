@@ -9,3 +9,6 @@ ul il {
 	background: #eee;
 	padding:5px 10px;
 }
+#dragdiv {
+	cursor: move;
+}

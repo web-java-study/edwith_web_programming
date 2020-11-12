@@ -8,32 +8,34 @@ import java.sql.SQLException;
 import java.sql.PreparedStatement;
 
 import dto.TodoDto;
+import dbConnect.DBConn;
 
 public class TodoDao {
 		/* [JDBC Java Database Connectivity] */
 		// DB Account, Time zone error → UTF-8, Timezone=UTC 
-		private static String url = "jdbc:mysql://localhost:3306/todolist?characterEncoding=UTF-8&serverTimezone=UTC";
-		private static String user = "connect";
-		private static String passwd = "1234";
-		private static String driver = "com.mysql.cj.jdbc.Driver";
-		public TodoDto getTodoDto() {
-			TodoDto todo = null;
-			Connection conn = null;
-			PreparedStatement ps = null;
+		@SuppressWarnings("finally")
+		public int getTodoDto() {
 			@SuppressWarnings("unused")
-			int rs;
+			int insertCount = 0;	// Result
+			
+			TodoDto todo = null;
+			PreparedStatement ps = null;
+			Connection conn = null;
 			
 			// close
 			try {
-				Class.forName(driver);
-				conn = DriverManager.getConnection(url, user, passwd);
-				String sql = "insert into todo(title, name, sequence) values(?,?,?)";
+				DBConn db = new DBConn();
+				conn = db.DBConnection();
+				String sql = "insert into todo(title, name, sequence) values( ?,?,? )";
 				ps = conn.prepareStatement(sql);
+				
+				// ?에 대한 값을 바인딩
 				ps.setString(1, "test");
 				ps.setString(2, "test");
 				ps.setLong(3, 11234);
-				rs = ps.executeUpdate();
 				
+				// select excuteQuery() Method
+				insertCount = ps.executeUpdate();
 				
 			} catch (Exception e) {
 				e.printStackTrace();
@@ -43,7 +45,6 @@ public class TodoDao {
 						ps.close();
 					} catch (SQLException e) {
 						e.printStackTrace();
-					}
 				}
 				if (conn != null) {
 					try {
@@ -55,10 +56,12 @@ public class TodoDao {
 				
 			}
 			
-			return todo;
+			return insertCount;
 			
+			}
 		}
 }
+
 
 	
 
