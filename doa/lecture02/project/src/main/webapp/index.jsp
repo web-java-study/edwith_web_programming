@@ -13,7 +13,8 @@ Test Page
 <ul id="todolist">
 <li><input type="checkbox"/></li>
 </ul>
-TODO
+<div id="dragdiv">TODO</div>
+
 DOING
 DONE
 >>>>>>> upstream/master

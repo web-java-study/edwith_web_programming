@@ -24,6 +24,9 @@ public class TodoFormServlet extends HttpServlet {
     public TodoFormServlet() {
 =======
 
+import java.sql.*;
+import dao.TodoDao;
+import dto.TodoDto;
 
 @WebServlet("/MainServlet")
 public class MainServlet extends HttpServlet {
@@ -39,6 +42,7 @@ public class MainServlet extends HttpServlet {
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 		response.setCharacterEncoding("UTF-8");
 <<<<<<< HEAD
+<<<<<<< HEAD
 		response.setContentType("text/html; charset=UTF-8");
 =======
 		// response.setContentType("application/json");
@@ -46,12 +50,13 @@ public class MainServlet extends HttpServlet {
 //		List<Todo> list = dao.getTodos();
 //		
 >>>>>>> upstream/master
+=======
 		
-		PrintWriter out = response.getWriter();
-		out.println("<html>");
-		out.println("<head><title> Todo List </title></head>");
-		out.println("<body>Test<br>Test</body>");
-		out.println("</html");
+		TodoDao db = new TodoDao();
+		db.getTodoDto();
+		System.out.println(db);
+>>>>>>> upstream/master
+		
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

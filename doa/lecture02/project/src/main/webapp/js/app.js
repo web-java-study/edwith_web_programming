@@ -1,4 +1,4 @@
-var btnNew = document.getElementById('btnAdd');
+/*var btnNew = document.getElementById('btnAdd');
 btnNew.onclick = addNewItem;
 
 function addNewItem() {
@@ -6,5 +6,6 @@ function addNewItem() {
 	listItem.innerText = "Hello";
 	
 	var list = document.getElementById('todolist');
-	list.appendChild(listItem);
+	list.appendChild(listItem); 
 }
+*/
