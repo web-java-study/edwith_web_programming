@@ -5,10 +5,10 @@ import java.sql.SQLException;
 import java.sql.Connection;
 
 public class DBConn {
-	private static String url = "jdbc:mysql://localhost:3306/todolist?characterEncoding=UTF-8&serverTimezone=UTC";
-	private static String user = "connect";
-	private static String passwd = "1234";
-	private static String driver = "com.mysql.cj.jdbc.Driver";
+	static String url = "jdbc:mysql://localhost:3306/todolist?characterEncoding=UTF-8&serverTimezone=UTC";
+	static String user = "connect";
+	static String passwd = "1234";
+	static String driver = "com.mysql.cj.jdbc.Driver";
 	public Connection DBConnection() throws ClassNotFoundException, SQLException {
 		Connection conn = null;
 		

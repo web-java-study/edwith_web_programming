@@ -9,6 +9,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import java.sql.*;
+import dao.TodoDao;
+import dto.TodoDto;
 
 @WebServlet("/MainServlet")
 public class MainServlet extends HttpServlet {
@@ -22,16 +25,11 @@ public class MainServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 		response.setCharacterEncoding("UTF-8");
-		// response.setContentType("application/json");
 		
-//		List<Todo> list = dao.getTodos();
-//		
+		TodoDao db = new TodoDao();
+		db.getTodoDto();
+		System.out.println(db);
 		
-		PrintWriter out = response.getWriter();
-		out.println("<html>");
-		out.println("<head><title> Todo List </title></head>");
-		out.println("<body>Test<br>Test</body>");
-		out.println("</html");
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

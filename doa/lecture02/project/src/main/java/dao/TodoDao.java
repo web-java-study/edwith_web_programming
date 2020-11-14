@@ -26,6 +26,7 @@ public class TodoDao {
 			try {
 				DBConn db = new DBConn();
 				conn = db.DBConnection();
+				System.out.println(conn);
 				String sql = "insert into todo(title, name, sequence) values( ?,?,? )";
 				ps = conn.prepareStatement(sql);
 				
@@ -36,6 +37,7 @@ public class TodoDao {
 				
 				// select excuteQuery() Method
 				insertCount = ps.executeUpdate();
+				System.out.println(insertCount);
 				
 			} catch (Exception e) {
 				e.printStackTrace();

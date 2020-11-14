@@ -10,7 +10,6 @@
 <li><input type="checkbox"/></li>
 </ul>
 <div id="dragdiv">TODO</div>
-dragElement(document.getElementById("dragdiv"));
 
 DOING
 DONE
