@@ -153,6 +153,19 @@ localhost:8080/param-test 에 접근했을때 실행할 함수를 생성하고 @
 
 View 를 보여줄 html 파일을 하나 생성하고 `localhost:8080/param-test?name=kang` 를 입력하면 화면에 파라미터로 넘겨받은 name 값이 출력되는걸 확인 할 수 있다.
 
+## API
+JSON 형태로 반환하는 방법
+```java
+@GetMapping("hello-api")
+@ResponseBody
+public Todos helloApi(@RequestParam("name") String name) {
+    Todos todos = new Todos();
+    todos.setName(name);
+    return todos;
+}
+```
+`@ResponseBody` Annotaion을 사용하게 되면 프론트로 리턴해줄때 JSON 형식으로 데이터를 반환시켜줄 수 있다.
+
 ## 데이터 조회하기
 컨트롤러와 뷰를 연결했고 연결한 디비에서 데이터목록을 조회해보려고 한다. 우선 domain 이란 이름을 가진 package 파일을 생성하고 todos 라는 이름으로 java class를 생성하려고 한다.  
   
