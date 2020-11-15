@@ -5,6 +5,10 @@ import java.io.IOException;
 =======
 import java.io.PrintWriter;
 
+<<<<<<< HEAD
+>>>>>>> upstream/master
+=======
+import javax.servlet.RequestDispatcher;
 >>>>>>> upstream/master
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -28,7 +32,7 @@ import java.sql.*;
 import dao.TodoDao;
 import dto.TodoDto;
 
-@WebServlet("/MainServlet")
+@WebServlet("")
 public class MainServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -39,8 +43,9 @@ public class MainServlet extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+//		response.getWriter().append("Served at: ").append(request.getContextPath());
 		response.setCharacterEncoding("UTF-8");
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 		response.setContentType("text/html; charset=UTF-8");
@@ -51,12 +56,19 @@ public class MainServlet extends HttpServlet {
 //		
 >>>>>>> upstream/master
 =======
+=======
+		request.setCharacterEncoding("UTF-8");
+		response.setContentType("text/html;charset=UTF-8");
+>>>>>>> upstream/master
 		
 		TodoDao db = new TodoDao();
 		db.getTodoDto();
 		System.out.println(db);
 >>>>>>> upstream/master
 		
+		// forward to jsp, MVC 패턴, forward 혹은 redirect 로 보낸다. → 서블릿 → JSP(view) 
+		RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");
+		rd.forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

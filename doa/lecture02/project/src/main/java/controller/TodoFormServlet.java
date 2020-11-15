@@ -1,6 +1,8 @@
 package controller;
 
 import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -27,6 +29,7 @@ public class TodoFormServlet extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+<<<<<<< HEAD
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 <<<<<<< HEAD
 =======
@@ -38,6 +41,10 @@ public class TodoFormServlet extends HttpServlet {
 		out.println("<head><title> Todo List </title></head>");
 		out.println("<body>Test<br>Test</body>");
 		out.println("</html");
+>>>>>>> upstream/master
+=======
+		// Encoding forward
+		request.getRequestDispatcher("/todoForm.jsp").forward(request, response);
 >>>>>>> upstream/master
 	}
 
