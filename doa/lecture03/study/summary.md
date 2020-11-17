@@ -52,3 +52,36 @@ $0 으로 해당 엘리먼트에 바로 접근 가능
 [div > text node]
 > $0.appendChild(div);
 ```
+
+메모
+
+[https://developer.mozilla.org/ko/docs/Web/API/Node/insertBefore](https://developer.mozilla.org/ko/docs/Web/API/Node/insertBefore)
+
+
+```jsx
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>JS Bin</title>
+</head>
+<body>
+  <div>
+    <p>When the element does not have a first child, then firstChild is null. The element is still appended to the parent, after the last child. Since the parent element did not have a first child, it did not have a last child either. Consequently, the new element is the only element, after insertion.</p>
+    <p>When the element does not have a first child, then firstChild is null. The element is still appended to the parent, after the last child. Since the parent element did not have a first child, it did not have a last child either. Consequently, the new element is the only element, after insertion.</p>
+  </div>
+</body>
+</html>
+
+TEST
+var base = document.querySelector("div");
+base.insertAdjacentHTML("afterbegin", "");
+
+var base2 = docment.querySelector("p:nth-child(3)");
+base2.insertAjacentHTML("beforebegin", "");
+
+$0.innerHTML;
++= "~~~"
+$0.innerText;
+```

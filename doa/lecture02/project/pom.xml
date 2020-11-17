@@ -18,8 +18,12 @@
     <maven.compiler.source>1.7</maven.compiler.source>
     <maven.compiler.target>1.7</maven.compiler.target>
 	
+<<<<<<< HEAD
+	<!-- web.xml 파일을 삭제해도 eclipse에서 오류가 발생하지 않는다. -->
+=======
 	<!-- web.xml 파일을 삭제해도 eclipse에서 오류가 발생하지 않는다. 
 	기본적으로 web.xml 을 삭제하면 오류가 발생하기 때문에 아래 설정을 해야 함.-->
+>>>>>>> upstream/master
 	<failOnMissingWebXml>false</failOnMissingWebXml>
   </properties>
 
@@ -37,14 +41,21 @@
 		<artifactId>mysql-connector-java</artifactId>
 		<version>5.1.45</version>
 	</dependency>
+<<<<<<< HEAD
+  
+=======
   <!-- JSON 라이브러리 databind, jackson-core, jackson-annotation 에 의존성이 있다. -->
+>>>>>>> upstream/master
  	<dependency>
 		<groupId>com.fasterxml.jackson.core</groupId>
 		<artifactId>jackson-databind</artifactId>
 		<version>2.9.4</version>
 	</dependency>
 
+<<<<<<< HEAD
+=======
  <!-- Servlet API -->
+>>>>>>> upstream/master
 	<dependency>
 		<groupId>javax.servlet</groupId>
 		<artifactId>javax.servlet-api</artifactId>
@@ -92,7 +103,10 @@
           <artifactId>maven-deploy-plugin</artifactId>
           <version>2.8.2</version>
         </plugin>
+<<<<<<< HEAD
+=======
         <!-- JDK 1.8  -->
+>>>>>>> upstream/master
  		<plugin>
 			<groupId>org.apache.maven.plugins</groupId>
 			<artifactId>maven-compiler-plugin</artifactId>
