@@ -10,9 +10,22 @@ const { resolve } = require('path');
 
 let name = "dto"
 var data = `
-"id": 0,
+"categoryId": 0,
+"categoryName": "string",
+"createDate": "2020-10-25T04:42:39.375Z",
+"displayInfoId": 0,
+"email": "string",
+"homepage": "string",
+"modifyDate": "2020-10-25T04:42:39.375Z",
+"openingHours": "string",
+"placeLot": "string",
+"placeName": "string",
+"placeStreet": "string",
+"productContent": "string",
+"productDescription": "string",
+"productEvent": "string",
 "productId": 0,
-"productImageUrl": "string"
+"telephone": "string"
 	`
 
 let file_name =(name)=>{

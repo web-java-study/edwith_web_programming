@@ -166,6 +166,19 @@ public Todos helloApi(@RequestParam("name") String name) {
 ```
 `@ResponseBody` Annotaion을 사용하게 되면 프론트로 리턴해줄때 JSON 형식으로 데이터를 반환시켜줄 수 있다.
 
+### 동작원리
+웹 브라우저에서 `localhost:8080/hello-api?name=test` 를 요청하게 되면 스프링부트내에 내장된 톰켓서버에서 스프링컨테이너로 요청을 넘기게 되고 `helloContoller` 에서 `@ResponseBody`를 만나게되면   
+- string 일때 HTTP 의 BODY 에 문자 내용을 직접 반환
+- `viewResolver` 대신에 `HttpMessageConverter` 가 동작
+- 이때 기본 문자일때는 문자그대로 처리해서 리턴하고 만약 리턴값이 객체라면 JSON 형태로 반환하게된다.
+
+## 웹 애플리케이션 계층 구조
+- 컨트롤러: 웹 MVC의 컨트롤러 역할
+- 서비스: 핵심 비즈니스 로직 구현
+- 리포지토리: 데이터베이스에 접근, 도멘이 객체를 DB에 저장하고 관리
+- 도메인: 비즈니스 도메인 객체
+
+
 ## 데이터 조회하기
 컨트롤러와 뷰를 연결했고 연결한 디비에서 데이터목록을 조회해보려고 한다. 우선 domain 이란 이름을 가진 package 파일을 생성하고 todos 라는 이름으로 java class를 생성하려고 한다.  
   
