@@ -1,0 +1,43 @@
+느슨한 결합력 
+코드를 직접 수정하지 않고 외부 파일(annotaion xml 를 이용) 하여 
+관계를 성립시키는것
+
+DI -> 조립
+
+Composition B => 일체형
+Class A{
+	private B b;
+	public A() {
+		b= new B();
+	}
+
+}
+
+Association has a => 부품형
+Class A{
+	private B b;
+	public A(){
+
+	}
+
+	public void setB(B b){
+		this.b=b;
+	}
+}
+
+B b = new B(); => dependency
+A a = new A();
+
+a.setB(b) ==> injection
+
+
+DI 의 두가지 방법
+	setter injection 
+		B b = new B(); => dependency
+		A a = new A();
+
+		a.setB(b) ==> injection
+
+	Construction injection
+		B b = new B();
+		A a = new A(b);
