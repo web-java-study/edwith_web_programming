@@ -85,3 +85,5 @@ $0.innerHTML;
 += "~~~"
 $0.innerText;
 ```
+
+https://jsbin.com/wuwimipuqi/1/edit?html,js,output
