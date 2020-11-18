@@ -29,9 +29,4 @@ public class HelloTest {
         todos.setName(name);
         return todos;
     }
-
-    @GetMapping("detail")
-    public String detail() {
-        return "detail";
-    }
 }
