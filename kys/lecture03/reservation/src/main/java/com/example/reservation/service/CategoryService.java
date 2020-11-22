@@ -8,7 +8,11 @@ import java.util.List;
 import java.util.Optional;
 
 public class CategoryService {
-    private final CategoryRepository categoryRepository = new CategoryTemplateRepository();
+    private final CategoryRepository categoryRepository;
+
+    public CategoryService(CategoryRepository categoryRepository) {
+        this.categoryRepository = categoryRepository;
+    }
 
     public List<Category> findAllCategory() {
         return categoryRepository.allCategory();
