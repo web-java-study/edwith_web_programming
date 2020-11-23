@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
+
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -10,42 +11,52 @@
 	</head>
 
 <body>
-<<<<<<< HEAD
-<<<<<<< HEAD
-<h2>Hello World!</h2>
-Test Page
-=======
-<h1>나의 해야할 일들</h1>
-<button id="btnAdd">새로운 TODO 등록</button>
-<ul id="todolist">
-<li><input type="checkbox"/></li>
-</ul>
-<div id="dragdiv">TODO</div>
-=======
 <header>
 	<h1>나의 해야할 일들</h1>
 	<nav class="topMenu">
 		<button id="btnAdd">새로운 TODO 등록</button>
 	</nav>
 </header>
->>>>>>> upstream/master
 
 <div class="todolistbox">
-	<table border="0">
+	<table border="0" bordercolor="blue" width="500" height="300">
 		<th>TODO</th>
 		<th>DOING</th>
-		<th>DONE</th>
+		<th>DONE</th>	
+		<tr	align="center" bgcolor="skyblue">
+			<td>Test</td>
+			<td>Test</td>
+			<td>Test</td>
+		</tr>
+		<tr>
+			<td>Test</td>
+			<td>Test</td>
+			<td>Test</td>
+		</tr>
+		<tr>
+			<td>Test</td>
+			<td>Test</td>
+			<td>Test</td>
+		</tr>
 	</table>
 </div>
 	
 <a href="/TodoFormServlet">TEST</a>
-DOING
-DONE
-<<<<<<< HEAD
->>>>>>> upstream/master
-=======
+
 <%-- ContextRoot 경로, TODO 생략하고 보냄 <%=request.getContextPath()%>
  --%>
->>>>>>> upstream/master
+<!-- <script type="text/javascript">
+
+var tr = document.createElement("tr");
+console.log(tr);
+var str = document.createTextNode("테스트입니다.");
+str.appendChild(str);
+
+$0;
+$0.appendChild(tr);
+ -->
+<div id="setTable"></div>
+
+<script type="text/javascript" src="./js/app.js"></script>	
 </body>
 </html>
