@@ -5,10 +5,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class ReservationViewController {
-    @GetMapping("/")
-    public String main() {
-        return "mainpage";
-    }
+//    @GetMapping("/")
+//    public String main() {
+//        return "mainpage";
+//    }
 
     @GetMapping("detail")
     public String detail() {

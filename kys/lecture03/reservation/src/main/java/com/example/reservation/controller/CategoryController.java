@@ -4,6 +4,7 @@ import com.example.reservation.domain.Category;
 import com.example.reservation.service.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -20,11 +21,18 @@ public class CategoryController {
 
     @GetMapping("/categorys")
     @ResponseBody
-    public Category categoryApi() {
+    public Category categoryApi(Model model) {
         List<Category> categoryList = categoryService.findAllCategory();
         Category categorys = new Category();
         categorys.setName("test");
         System.out.println(categoryList);
         return categorys;
+    }
+
+    @GetMapping("/")
+    public String main(Model model) {
+        List<Category> categoryList = categoryService.findAllCategory();
+        model.addAttribute("data", categoryList);
+        return "mainpage";
     }
 }
