@@ -1,5 +1,16 @@
 table {
 	width: 100%;
-	bordercolor: blue;
-	
+	height: 300%;
 }
+
+td {
+	background-color: skyblue;
+	color: blue;
+	text-align: center;
+}
+
+th {
+	color: white;
+	background-color: #010747;
+}
+
