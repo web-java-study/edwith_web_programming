@@ -19,13 +19,12 @@ public class CategoryController {
         this.categoryService = categoryService;
     }
 
-    @GetMapping("/categorys")
+    @GetMapping("categorys")
     @ResponseBody
     public Category categoryApi(Model model) {
         List<Category> categoryList = categoryService.findAllCategory();
         Category categorys = new Category();
-        categorys.setName("test");
-        System.out.println(categoryList);
+        categorys.setList(categoryList);
         return categorys;
     }
 

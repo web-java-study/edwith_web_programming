@@ -1,8 +1,11 @@
 package com.example.reservation.domain;
 
+import java.util.List;
+
 public class Category {
     private Integer id;
     private String name;
+    private List list;
 
     public Integer getId() {
         return id;
@@ -18,5 +21,13 @@ public class Category {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public List getList() {
+        return list;
+    }
+
+    public void setList(List list) {
+        this.list = list;
     }
 }
