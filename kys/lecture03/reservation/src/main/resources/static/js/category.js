@@ -28,7 +28,7 @@ const renderCategory = (data) => {
 }
 
 const init = async () => {
-  await fetch('/categorys')
+  await fetch('/api/categorys')
     .then(res => {
       return res.json();
     })
