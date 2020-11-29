@@ -14,11 +14,13 @@ const category_ul = document.querySelector('.js_category_ul');
 let responseData = null;
 
 const renderCategory = (data) => {
+  console.log(data)
   data.map(list => {
     const li = document.createElement('LI');
     const a = document.createElement('A');
     const span = document.createElement('SPAN');
     span.innerText = list.name;
+    a.href = `?id=${list.id}`
     a.appendChild(span);
     li.appendChild(a);
     li.classList = 'item';

@@ -35,6 +35,7 @@ public class CategoryTemplateRepository implements CategoryRepository {
         return (rs, rowNum) -> {
             Category category = new Category();
             category.setName(rs.getString("name"));
+            category.setId(rs.getInt("id"));
             return category;
         };
     }
