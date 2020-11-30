@@ -13,6 +13,6 @@ public class CategoryDisplayService {
     }
 
     public List<CategoryDisplay> allProductsList() {
-
+        return categoryDisplayRepository.allCategoryDisplay();
     }
 }

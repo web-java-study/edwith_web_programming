@@ -4,14 +4,12 @@ import com.example.reservation.domain.CategoryDisplay;
 import com.example.reservation.service.CategoryDisplayService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping(value="/api", method= RequestMethod.GET)
 public class CategoryDisplayController {
     private final CategoryDisplayService categoryDisplayService;
 
@@ -20,9 +18,12 @@ public class CategoryDisplayController {
         this.categoryDisplayService = categoryDisplayService;
     }
 
-    @GetMapping("products")
+    @RequestMapping(value="/products", method= RequestMethod.GET)
     public CategoryDisplay products(Model model) {
-        List<CategoryDisplay> productsList = categoryDisplayService.
+        List<CategoryDisplay> productsList = categoryDisplayService.allProductsList();
+        CategoryDisplay categoryDisplay = new CategoryDisplay();
+        categoryDisplay.setList(productsList);
+        return categoryDisplay;
     }
 
 }

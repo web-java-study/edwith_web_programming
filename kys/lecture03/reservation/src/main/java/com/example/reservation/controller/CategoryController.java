@@ -22,8 +22,7 @@ public class CategoryController {
         this.categoryService = categoryService;
     }
 
-    @GetMapping("categorys")
-    @ResponseBody
+    @RequestMapping("/categorys")
     public Category categoryApi(Model model) {
         List<Category> categoryList = categoryService.findAllCategory();
         Category categorys = new Category();

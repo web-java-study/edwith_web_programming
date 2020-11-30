@@ -12,19 +12,22 @@ public class ProductsRepository implements CategoryDisplayRepository {
     private final JdbcTemplate jdbcTemplate;
 
     public ProductsRepository(DataSource dataSource) {
-        jdbcTemplate = new JdbcTemplate();
+        jdbcTemplate = new JdbcTemplate(dataSource);
     }
 
     @Override
-    public List<CategoryDisplay> allProducts() {
-        return jdbcTemplate.query("select * from product");
+    public List<CategoryDisplay> allCategoryDisplay() {
+        return jdbcTemplate.query("select * from product", productRowMapper());
     }
 
     private RowMapper<CategoryDisplay> productRowMapper() {
         return (rs, rowNum) -> {
             CategoryDisplay products = new CategoryDisplay();
-            products.set
+            products.setId(rs.getInt("id"));
+            products.setCategory_id(rs.getInt("category_id"));
+            products.setDescription(rs.getString("description"));
+            products.setContent(rs.getString("content"));
             return products;
-        }
+        };
     }
 }

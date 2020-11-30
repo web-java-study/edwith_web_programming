@@ -1,15 +1,15 @@
 package com.example.reservation.domain;
 
+import java.util.List;
+
 public class CategoryDisplay {
     private Integer id;
-    private Integer product_id;
-    private String opening_hours;
-    private String place_name;
-    private String place_lot;
-    private String place_street;
-    private String tel;
-    private String homepage;
-    private String email;
+    private Integer category_id;
+    private String description;
+    private String content;
+    private String create_date;
+    private String modify_date;
+    private List list;
 
     public Integer getId() {
         return id;
@@ -19,67 +19,51 @@ public class CategoryDisplay {
         this.id = id;
     }
 
-    public Integer getProduct_id() {
-        return product_id;
+    public Integer getCategory_id() {
+        return category_id;
     }
 
-    public void setProduct_id(Integer product_id) {
-        this.product_id = product_id;
+    public void setCategory_id(Integer category_id) {
+        this.category_id = category_id;
     }
 
-    public String getOpening_hours() {
-        return opening_hours;
+    public String getDescription() {
+        return description;
     }
 
-    public void setOpening_hours(String opening_hours) {
-        this.opening_hours = opening_hours;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
-    public String getPlace_name() {
-        return place_name;
+    public String getContent() {
+        return content;
     }
 
-    public void setPlace_name(String place_name) {
-        this.place_name = place_name;
+    public void setContent(String content) {
+        this.content = content;
     }
 
-    public String getPlace_lot() {
-        return place_lot;
+    public String getCreate_date() {
+        return create_date;
     }
 
-    public void setPlace_lot(String place_lot) {
-        this.place_lot = place_lot;
+    public void setCreate_date(String create_date) {
+        this.create_date = create_date;
     }
 
-    public String getPlace_street() {
-        return place_street;
+    public String getModify_date() {
+        return modify_date;
     }
 
-    public void setPlace_street(String place_street) {
-        this.place_street = place_street;
+    public void setModify_date(String modify_date) {
+        this.modify_date = modify_date;
     }
 
-    public String getTel() {
-        return tel;
+    public List getList() {
+        return list;
     }
 
-    public void setTel(String tel) {
-        this.tel = tel;
-    }
-
-    public String getHomepage() {
-        return homepage;
-    }
-
-    public void setHomepage(String homepage) {
-        this.homepage = homepage;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
+    public void setList(List list) {
+        this.list = list;
     }
 }
