@@ -6,5 +6,6 @@ import java.util.List;
 import java.util.Optional;
 
 public interface CategoryDisplayRepository {
+    List<CategoryDisplay> selectCategory(Integer category_id);
     List<CategoryDisplay> allCategoryDisplay();
 }

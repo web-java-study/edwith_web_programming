@@ -1,11 +1,13 @@
 package com.example.reservation.repository;
 
+import com.example.reservation.domain.Category;
 import com.example.reservation.domain.CategoryDisplay;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 
 import javax.sql.DataSource;
 import java.util.List;
+import java.util.Optional;
 
 public class ProductsRepository implements CategoryDisplayRepository {
 
@@ -18,6 +20,12 @@ public class ProductsRepository implements CategoryDisplayRepository {
     @Override
     public List<CategoryDisplay> allCategoryDisplay() {
         return jdbcTemplate.query("select * from product", productRowMapper());
+    }
+
+    @Override
+    public List<CategoryDisplay> selectCategory(Integer category_id) {
+        return jdbcTemplate.query("select * from product where category_id = ?", productRowMapper(), category_id);
+
     }
 
     private RowMapper<CategoryDisplay> productRowMapper() {

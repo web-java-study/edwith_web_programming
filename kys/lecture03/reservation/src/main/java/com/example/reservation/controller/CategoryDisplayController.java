@@ -7,9 +7,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
-@RequestMapping(value="/api", method= RequestMethod.GET)
+@RequestMapping(value="/api/products", method= RequestMethod.GET)
 public class CategoryDisplayController {
     private final CategoryDisplayService categoryDisplayService;
 
@@ -18,12 +19,13 @@ public class CategoryDisplayController {
         this.categoryDisplayService = categoryDisplayService;
     }
 
-    @RequestMapping(value="/products", method= RequestMethod.GET)
-    public CategoryDisplay products(Model model) {
+    @GetMapping
+    public CategoryDisplay products(@RequestParam(required = false) Integer categoryId) {
         List<CategoryDisplay> productsList = categoryDisplayService.allProductsList();
+        List<CategoryDisplay> selectList = categoryDisplayService.selectCategory(categoryId);
         CategoryDisplay categoryDisplay = new CategoryDisplay();
-        categoryDisplay.setList(productsList);
+//        categoryDisplay.setCategory_id(selectList);
+        categoryDisplay.setList(selectList);
         return categoryDisplay;
     }
-
 }
