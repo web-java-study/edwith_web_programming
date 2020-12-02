@@ -24,14 +24,16 @@ public class ProductsRepository implements CategoryDisplayRepository {
 
     @Override
     public List<CategoryDisplay> selectCategory(Integer category_id) {
-        return jdbcTemplate.query("select * from product where category_id = ?", productRowMapper(), category_id);
-
+//        return jdbcTemplate.query("select * from product where category_id = ?", productRowMapper(), category_id);
+        return jdbcTemplate.query("select product.category_id, product.description, product.content, product_image.type, product_image.id, product_image.product_id\n" +
+                "from product, product_image\n" +
+                "where product.id = product_image.product_id\n" +
+                "and product_image.type=\"ma\"" + "and product.category_id=?", productRowMapper(), category_id);
     }
 
     private RowMapper<CategoryDisplay> productRowMapper() {
         return (rs, rowNum) -> {
             CategoryDisplay products = new CategoryDisplay();
-            products.setId(rs.getInt("id"));
             products.setCategory_id(rs.getInt("category_id"));
             products.setDescription(rs.getString("description"));
             products.setContent(rs.getString("content"));

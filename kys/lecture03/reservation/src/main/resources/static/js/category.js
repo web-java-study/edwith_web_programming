@@ -11,16 +11,17 @@
 // }
 
 const category_ul = document.querySelector('.js_category_ul');
+const event_count = document.querySelector('.js_count');
 let responseData = null;
 
 const renderCategory = (data) => {
   console.log(data)
-  data.map(list => {
+  data.list.map(list => {
     const li = document.createElement('LI');
     const a = document.createElement('A');
     const span = document.createElement('SPAN');
     span.innerText = list.name;
-    a.href = `?id=${list.id}`
+    a.href = `?category_id=${list.id}`
     a.appendChild(span);
     li.appendChild(a);
     li.classList = 'item';
@@ -29,18 +30,39 @@ const renderCategory = (data) => {
   })
 }
 
-const init = async () => {
-  await fetch('/api/categorys')
+const renderProducts = (data) => {
+  console.log(data.list);
+  const count = data.list.length;
+  event_count.innerText = `${count}개`;
+  
+}
+
+const callApi = async (url) => {
+  const responseData = await fetch(url)
     .then(res => {
       return res.json();
     })
     .then(data => {
-      responseData = data
+      return data
     })
     .catch(err => {
       console.log('Fetch Error', err);
     })
-    renderCategory(responseData.list)
+    return responseData;
 }
 
-init();
+const init = async () => {
+  const categorys = await callApi('/api/categorys');
+  let products = null
+  if (window.location.search) {
+    products = await callApi(`/api/products?categoryId=${window.location.search.split('=')[1]}`)
+  } else {
+    products = await callApi('/api/products')
+  }
+  renderCategory(categorys);
+  renderProducts(products);
+}
+
+window.onload = () => {
+  init();
+}

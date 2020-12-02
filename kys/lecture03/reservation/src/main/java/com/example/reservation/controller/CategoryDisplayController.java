@@ -24,8 +24,11 @@ public class CategoryDisplayController {
         List<CategoryDisplay> productsList = categoryDisplayService.allProductsList();
         List<CategoryDisplay> selectList = categoryDisplayService.selectCategory(categoryId);
         CategoryDisplay categoryDisplay = new CategoryDisplay();
-//        categoryDisplay.setCategory_id(selectList);
-        categoryDisplay.setList(selectList);
+        if(categoryId instanceof Integer) {
+            categoryDisplay.setList(selectList);
+        } else {
+            categoryDisplay.setList(productsList);
+        }
         return categoryDisplay;
     }
 }
