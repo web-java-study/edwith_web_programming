@@ -37,3 +37,84 @@ public class Main {
 - **public**: 메소드의 접근제어자로 누구나 접근 가능
 - **static**: static이 지정되어있는경우 이 메소드는 인스턴스 생성없이 실행 가능
 - **void**: 리턴값이 없다는걸 나타내는 타입
+
+## 변수
+변수는 자료형(type)과 함께 선언하여 사용한다.
+```java
+int a = 1
+String b = 'Hello Java'
+```
+- int
+- long
+- double
+- boolean
+- char
+- String
+- StringBuffer
+- List
+- Map
+
+
+### 사용자 정의 자료형
+JAVA 에서 기본적으로 정의되고 제공하는 자료형말고 사용자가 직접 자료형을 정의하고 사용할 수 있다.
+
+```java
+class Student {}
+
+Student son
+// son 이라는 변수는 Student 자료형 변수이고 Student 자료형에 해당하는 값만 담을 수 있다.
+```
+
+int 타입으로 정의된 변수는 숫자형태의 정해진 범위내에 있는 값들만 입력받을 수 있는것처럼 사용자 정의 자료형도 해당 자료형에 해당하는 값만 담을 수 있다.
+
+## 자료형
+자료형중에 자주사용하는 숫자에 해당하는 타입은
+
+- int: 정수표현
+- long: 정수표현
+- float: 실수표현
+- double: 실수표현
+
+네가지가 있다 
+  
+주의해야할 부분은 float 타입으로 실수를 표현할때는 F를 붙여서 사용해야한다.
+```java
+float f = 1.23f;
+double d = 1.23;
+```
+
+### List
+```java
+ArrayList list = new ArrayList();
+list.add('a');
+list.add('b');
+System.out.println(list); // [a, b]
+System.out.println(list.get(0)); // a
+System.out.println(list.size()); // 2
+```
+
+### Generics(제네릭스)
+제네릭스를 사용하면 위의 List 사용법을 아래와같이 사용할 수 있다.
+```java
+ArrayList<String> list = new ArrayList<String>();
+```
+그렇다면 이 제네릭스를 사용하여 얻는 이점은 무엇일까 바로 타입을 좀더 명확하게 지정해서 사용할 수 있다. 위의 코드를 해석하자면 ArrayList 타입을 가진 list 변수에 포함되는 배열은 스트링만 포함 할 수 있다 라고 해석될 수 있다.
+  
+이 제네릭스 타입으로 사용할 수 있는 타입에는 String외에도 Integer 그리고 사용자 지정 타입까지 사용가능하다.
+
+### map
+map 은 key 와 value 를 사용하여 데이터를 다룬다.
+```java
+HashMap<String, String> map = new HashMap<String, String>();
+map.put("animal", "cat");
+map.get("animal"); // cat
+map.containsKey("animal") // true
+```
+map 에는 HashMap 외에도 
+- LinkedHashMap
+- TreeMap
+
+이있는데 LinkedHashMap 은 입력된 순서대로 데이터가 출력되고  
+TreeMap 은 입력된 key의 정렬순으로 데이터가 출력되는 특징이 있다.
+
+
