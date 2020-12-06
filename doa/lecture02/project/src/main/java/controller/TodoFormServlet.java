@@ -9,21 +9,29 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import dao.TodoDao;
+import dto.TodoDto;
+
+
 @WebServlet("/TodoFormServlet")
 public class TodoFormServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    public TodoFormServlet() {
-        super();
-    }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// Encoding forward
 		request.getRequestDispatcher("/todoForm.jsp").forward(request, response);
+		
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doGet(request, response);
+		TodoDao dao = new TodoDao();
+		TodoDto dto = new TodoDto();
+		
+		int test;
+		test = dao.getTodoDto(dto);
+		
+		System.out.println(dto);
+//		request.getRequestDispatcher("/todoForm.jsp").forward(request, response);
 	}
 
 }
