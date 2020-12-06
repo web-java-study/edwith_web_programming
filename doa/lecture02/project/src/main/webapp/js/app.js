@@ -9,7 +9,7 @@ function addNewItem() {
 	list.appendChild(listItem); 
 }
 */
-
+/*
 var table = document.createElement("table");
 table.border = 1;
 table.width = "100%"
@@ -26,3 +26,4 @@ var table = document.createElement( "TABLE" );
     table.appendChild( tr ); 
 
 setTable.appendChild( table ); 
+*/

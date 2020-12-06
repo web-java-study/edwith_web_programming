@@ -1,5 +1,6 @@
 package dto;
 
+
 public class TodoDto {
 	private Long id;
 	private String name;
@@ -29,7 +30,7 @@ public class TodoDto {
         return id;
     }
 
-    public void setId() {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -37,7 +38,7 @@ public class TodoDto {
         return name;
     }
 
-    public void setName() {
+    public void setName(String name) {
         this.name = name;
     }
 
@@ -45,7 +46,7 @@ public class TodoDto {
         return regdate;
     }
 
-    public void setRegdate() {
+    public void setRegdate(String regdate) {
         this.regdate = regdate;
     }
 
@@ -53,7 +54,7 @@ public class TodoDto {
         return sequence;
     }
 
-    public void setSequence() {
+    public void setSequence(int sequence) {
         this.sequence = sequence;
     }
 
@@ -61,7 +62,7 @@ public class TodoDto {
         return title;
     }
 
-    public void setTitle() {
+    public void setTitle(String title) {
         this.title = title;
     }
 
@@ -69,7 +70,7 @@ public class TodoDto {
         return type;
     }
 
-    public void setType() {
+    public void setType(String type) {
         this.type = type;
     }
 
@@ -77,4 +78,6 @@ public class TodoDto {
     public String toString() {
         return "Todo [id= " +id + ", name= " +name + ", regdate= " +regdate + ", sequence= " +sequence + ", title= " +title + ", type= " + type + "]";
     }
+
+
 }
