@@ -1,15 +1,16 @@
 package com.company;
 
 public class Animal {
-    String name;
+    int a;  // 객체변수 a
 
-    public void setNAme(String name) {
-        this.name = name;
+    public void vartest(Animal test) {
+        test.a++;
     }
 
-    public static void main(String args[]) {
-        Animal cat = new Animal();
-        cat.setNAme("body");
-        System.out.println(cat.name);
+    public static void main(String[] args) {
+        Animal myTest = new Animal();
+        myTest.a = 1;
+        myTest.vartest(myTest);
+        System.out.println(myTest.a);
     }
 }

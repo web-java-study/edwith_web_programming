@@ -28,7 +28,7 @@ public class Student {
     // 객체변수, 인스턴스변수, 멤버 변수 라고도 부른다.
     String name;
 
-    public static void main(String args[]) {
+    public static void main(String[] args) {
         Student son = new Student();
         System.out.println(son.name); // null
     }
@@ -46,12 +46,174 @@ public class Student {
         this.name = name;
     }
 
-    public static void main(String args[]) {
+    public static void main(String[] args) {
         Student son = new Student();
         son.setName("brown");
-        System.out.println(son.name); // null
+        System.out.println(son.name); // brown
     }
 }
 ```
 
 위의 코드는 Student 클래스에 리턴값이 없는 setName 메소드를 생성하여 인자값으로 name을 전달받아 객체 변수에 인자로 넘어온값을 할당해준다. 그리고 main 메소드에서 생성한 객체에서 setName을 사용하여 값을 전달할 수 있다.
+  
+```java
+public class Student {
+    // 객체변수, 인스턴스변수, 멤버 변수 라고도 부른다.
+    String name;
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public static void main(String[] args) {
+        Student son = new Student();
+        Student son2 = new Student();
+        son.setName("brown");
+        son2.setName("duck");
+        System.out.println(son.name); // brown
+        System.out.println(son2.name); // duck
+    }
+}
+```
+
+위의 코드는 각각 생성된 객체가 동일한 메소드를 호출하여 사용하는 코드이다. 위의 코드로 알수있는것은 객체변수는 공유되지않고 생성된 객체에 의해 개별적으로 메소드가 호출된다는걸 알 수 있다. 생성된 객체에 따라 변수나 메소드가 개별적으로 적용되기때문에 객체지향적이라고 불리우는 이유가된다.
+
+### 메소드
+```java
+public class MethodTest {
+    public int sum(int a, int b) { // 메소드
+        return a + b;
+    }
+
+    public static void main(String[] args) {
+        int a = 1;
+        int b = 2;
+        MethodTest test = new MethodTest();
+        int result = test.sum(a, b); // 메소드 호출
+
+        System.out.println(result);
+    }
+}
+```
+
+자바스크립트를 사용할땐 매소드와 함수를 따로 불렀었다. 메소드는 객체 내부에 정의된 함수를 사용할땐 메소드라부르고 순수하게 함수 자체만 호출해서 사용할때는 함수라고 불렀었다. 
+  
+자바에서는 클래스선언없이는 메소드도 함수도없기때문에 무조건 메소드체이닝을 사용해서 호출한다. 때문에 자바는 함수가 아니라 메소드밖에 없다. 생성된 클래스객체가 있어야 내부에 메소드를 선언하여 만들 수 있다.
+
+```java
+// 리턴값도있고 입력값도 있는 메소드
+public int sum(int a, int b) {
+    return a + b;
+}
+
+// 리턴값이 없는 메소드 and 입력값이 없는 메소드
+public void test() {
+    System.out.println("Hello");
+}
+
+// 리턴값은있고 입력값이 없는 메소드
+public int number() {
+    return 1;
+}
+```
+
+
+### 메소드에 객체를 전달
+> 메소드에 객체를 전달하면 메소드에서 객체변수 값의 변경이 가능하다.
+
+위의 예제에서는 메소드에 값을 전달하는 예제로 사용하였는데 메소드는 객체도한 전달받아 사용 할 수 있다. 이때 메소드는 전달받은 객체의 객체변수값 자체에 대한 수정이 가능하게된다.
+
+```java
+class Increase {
+    public void increase(Counter count) {
+        count.count++;
+    }
+}
+
+public class Counter {
+    int count = 0;
+
+    public static void main(String[] args) {
+        Counter count = new Counter();
+        System.out.println("init count: " + count.count); // 0
+
+        Increase increase = new Increase();
+        increase.increase(count);
+        System.out.println("increase count: " + count.count); // 1
+    }
+}
+```
+
+
+
+## 상속
+상속은 자식이 부모로부터 물려받는 무언가를 말한다. 자바에서 풀이를 하자면 자식클래스는 부모클래스가 가진 객제변수나 메소드를 상속받아 사용이 가능하다.
+```java
+public class Parent { // 부모클래스
+    String name;
+
+    public void setName(Sstring name) {
+        this.name = name;
+    }
+}
+
+public class Children extends Parent { // 부모객체를 상속받은 자식클래스
+
+    public void sleep() {
+        System.out.println(this.name + "zzz");
+    }
+
+    public static void main(String[] args) {
+        Children children = new Children();
+        children.setName("nami"); // 부모클래스의 setName 메소드를 사용
+        System.out.println(children.name); // nami
+        children.sleep(); // nami zzz
+    }
+}
+```
+
+### Is - A 관계
+상속관계에 있을때 자식객체는 부모클래스의 자료형처럼 사용 할 수 있다.
+```java
+Parent children = new Children();
+```
+
+### 메소드 오버라이딩
+자식객체를 상속받은 또다른 객체를 생성하여 그 내부에서 부모에게 있는 동일한 이름의 메소드를 수정하여 정의하게되면 자식클래스에서 선언된 메소드가 우선순위로 실행된다. 이렇게 구현하는 행위를 메소드오버라이딩 이라고 한다.
+
+```java
+public class FirstChildren extends Children {
+    public void sleep() { // 부모클래스와 동일한 이름의 메소드
+        System.out.println(this.name + "zzz in house");
+    }
+
+    public static void main(String[] args) {
+        FirstChildren firstChildren = new FirstChildren();
+        firstChildren.setName("bug"); // name = dog
+        firstChildren.sleep(); // dog zzz in house
+    }
+}
+```
+
+### 메소드와 오버로딩
+FirstChildren 클래스에 sleep 메소드가 존재하지만 동일한 이름의 메소드를 하나 더 만들 수 있다. 다만 메소드의 입력항목이 다를 경우에만 가능하다. 이러한 것은 메소드 오버로딩 이라고 한다.
+
+
+```java
+public class FirstChildren extends Children {
+    public void sleep() { // 부모클래스와 동일한 이름의 메소드
+        System.out.println(this.name + "zzz in house");
+    }
+
+    public void sleep(int hour) { // 부모클래스와 동일한 이름의 메소드
+        System.out.println(this.name + "zzz in house" + hour + "hours");
+    }
+
+    public static void main(String[] args) {
+        FirstChildren firstChildren = new FirstChildren();
+        firstChildren.setName("bug"); // name = dog
+        firstChildren.sleep(); // dog zzz in house
+        firstChildren.sleep(3); // dog zzz in house 3 hours
+    }
+}
+```
