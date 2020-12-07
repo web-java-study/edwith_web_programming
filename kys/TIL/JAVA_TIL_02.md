@@ -217,3 +217,69 @@ public class FirstChildren extends Children {
     }
 }
 ```
+
+### 생성자
+**생성자의 규칙**
+- 클래스명과 메소드명이 동일하다.
+- 리턴타입을 정의하지 않는다.
+
+생성자를 사용하게되면 객체변수에 값을 무조건 할당해야지만 객체가 생성되도록 강제 할 수 있다.  
+
+
+```java
+public class FirstChildren extends Children {
+    public FirstChildren(String name) { // 클래스명과 동일한 메소드 생성
+        this.setName(name);
+    }
+
+    public void sleep() { // 부모클래스와 동일한 이름의 메소드
+        System.out.println(this.name + "zzz in house");
+    }
+
+    public void sleep(int hour) { // 부모클래스와 동일한 이름의 메소드
+        System.out.println(this.name + "zzz in house" + hour + "hours");
+    }
+
+    public static void main(String[] args) {
+        FirstChildren firstChildren = new FirstChildren("bug"); // 클래스를 생성하면서 name 인자를 넘겨주어야 오류가 발생하지 않는다.
+        // firstChildren.setName("bug");
+        firstChildren.sleep(); // dog zzz in house
+        firstChildren.sleep(3); // dog zzz in house 3 hours
+    }
+}
+```
+
+**생성자 오버로딩**
+메소드 오버로딩과 같은 개념으로 클래스내부에 서로 다른 입력값을 받는 생성자를 여러개 만들어 사용할 수 있다.
+
+
+```java
+public class FirstChildren extends Children {
+    public FirstChildren(String name) {
+        this.setName(name);
+    }
+
+    public FirstChildren(int type) { // 추가된 생성자
+        if (type == 1) {
+            this.setName("byte")
+        } else if (type == 2) {
+            this.setName("bit")
+        }
+    }
+
+    public void sleep() { // 부모클래스와 동일한 이름의 메소드
+        System.out.println(this.name + "zzz in house");
+    }
+
+    public void sleep(int hour) { // 부모클래스와 동일한 이름의 메소드
+        System.out.println(this.name + "zzz in house" + hour + "hours");
+    }
+
+    public static void main(String[] args) {
+        FirstChildren firstChildren = new FirstChildren("bug");
+        FirstChildren byte = new FirstChildren(1); 
+        System.out.println(firstChildren.name); // bug
+        System.out.println(byte.name); // byte
+    }
+}
+```
