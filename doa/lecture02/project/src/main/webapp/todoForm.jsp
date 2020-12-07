@@ -4,9 +4,21 @@
 <!DOCTYPE html>
 
 <html>
-<head><title></title>
+<head>
+	<title></title>
 </head>
+
 <body>
-<h1>여기는 TodoFrom 입니다. </h1>
+	<header>
+		<h1>할일 등록 </h1>
+	</header>
+	<div>
+		<p>어떤일인가요?</p>
+	</div>
+
+<!-- JSTL  -->
+
+<button id="btnAdd" type="submit" onclick="location.href='/Todo' "> &lt; 이전</button>	
+
 </body>
 </html>

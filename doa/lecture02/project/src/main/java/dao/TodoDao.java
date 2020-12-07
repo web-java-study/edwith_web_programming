@@ -1,12 +1,11 @@
 package dao;
 
 import java.sql.Connection;
-
-import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.List;
+import java.util.*;
+
 import java.sql.PreparedStatement;
 
 import dto.TodoDto;
@@ -16,38 +15,35 @@ public class TodoDao {
 		/* [JDBC Java Database Connectivity] */
 		// DB Account, Time zone error → UTF-8, Timezone=UTC 
 		@SuppressWarnings("finally")
-		public int getTodoDto() {
-			@SuppressWarnings("unused")
+		public int getTodoDto(TodoDto dto) {
 			int insertCount = 0;	// Result
-			
-			TodoDto todo = null;
-			PreparedStatement ps = null;
+			PreparedStatement pstmt = null;
 			Connection conn = null;
-			ResultSet rs = null;
-		
+			String sql = "insert into todo(title, name, sequence) values(?,?,?)";
+			
 			// closes
 			try {
 				DBConn db = new DBConn();
 				conn = db.DBConnection();
 				System.out.println(conn);
-				String sql = "insert into todo(title, name, sequence) values( ?,?,? )";
-				ps = conn.prepareStatement(sql);
+				pstmt = conn.prepareStatement(sql);
 				
 				// ?에 대한 값을 바인딩
-				ps.setString(1, "test");
-				ps.setString(2, "test");
-				ps.setLong(3, 11234);
+				pstmt.setString(1, dto.getTitle());
+				pstmt.setString(2, dto.getName());
+				pstmt.setLong(3, dto.getSequence());
 				
 				
 				// select excuteQuery() Method
-				insertCount = ps.executeUpdate();
+				insertCount = pstmt.executeUpdate();
+				System.out.println();
 					
 			} catch (Exception e) {
 				e.printStackTrace();
 			} finally {
-				if (ps != null) {
+				if (pstmt != null) {
 					try {
-						ps.close();
+						pstmt.close();
 					} catch (SQLException e) {
 						e.printStackTrace();
 				}
@@ -68,29 +64,34 @@ public class TodoDao {
 			
 		}
 		
-		public int getSelect() {
-			int selectCount = 0;
-			String sql = "SELECT * FROM todo";
+		public List<TodoDto> getSelect() {
+			String sql = "select id, title, name, sequence, type, regdate from todo order by regdate desc";
+			@SuppressWarnings("rawtypes")
+			List<TodoDto> dtos = new ArrayList();
 			Connection conn = null;
-			Statement stmt = null;
+			PreparedStatement pstmt = null;
 			ResultSet rs = null;
 			
 			try {
 				DBConn db = new DBConn();
 				conn = db.DBConnection();
-				System.out.println(conn);
 				
-				stmt = conn.prepareStatement(sql);
-				rs = stmt.executeQuery(sql);
-				
+				pstmt = conn.prepareStatement(sql);
+				rs = pstmt.executeQuery(sql);
 				
 				while (rs.next()) {
-					String id = rs.getString("id");
-					String title = rs.getString("title");
-					String name = rs.getNString("name");
+					TodoDto dto = new TodoDto();
+					dto.setId(rs.getLong("id"));
+					dto.setName(rs.getString("name"));
+					dto.setTitle(rs.getString("title"));
+					dto.setSequence(rs.getInt("sequence"));
+					dto.setType(rs.getString("type"));
+					dto.setRegdate(rs.getString("regdate"));
 					
-					System.out.println(id + " " + title + " " + name + " ");
+					dtos.add(dto);
+					System.out.println(dto.toString());
 				}
+				return dtos;
 			} catch (Exception e) {
 				e.printStackTrace();
 			} finally {
@@ -108,17 +109,18 @@ public class TodoDao {
 						e.printStackTrace();
 					}
 				}
-				if (stmt != null) {
+				if (pstmt != null) {
 					try {
-						stmt.close();
+						pstmt.close();
 					} catch (SQLException e) {
 						e.printStackTrace();
 					}
 				}
 			}
+			return dtos;
 		
-			return selectCount;
 		}
+
 		
 }
 
