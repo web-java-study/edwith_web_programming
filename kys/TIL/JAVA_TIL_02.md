@@ -218,7 +218,7 @@ public class FirstChildren extends Children {
 }
 ```
 
-### 생성자
+## 생성자
 **생성자의 규칙**
 - 클래스명과 메소드명이 동일하다.
 - 리턴타입을 정의하지 않는다.
@@ -283,3 +283,106 @@ public class FirstChildren extends Children {
     }
 }
 ```
+
+## 인터페이스
+
+```java
+public class Parent {
+    String name;
+
+    public void setName(String name) {
+        this.name = name;
+    }
+}
+
+class Child extends Parent {}
+class Child2 extends Parent {}
+class Child3 extends Parent {}
+
+public class Teacher {
+    public void teaching(Child child) {
+        System.out.println("Teaching eng")
+    }
+
+    public void teaching(Child2 child2) {
+        System.out.println("Teaching math")
+    }
+
+    public void teaching(Child3 child3) {
+        System.out.println("Teaching programming");
+    }
+
+    public static void main(String[] args) {
+        Teacher teacher = new Teacher();
+        Child child = new Child();
+        Child2 child2 = new Child2();
+        Child3 child3 = new Child3();
+
+        teacher.teaching(child); // Teaching eng
+        teacher.teaching(child2); // Teaching math
+        teacher.teaching(child3); // Teaching programming
+    }
+}
+```
+
+- 위의코드는 먼저 부모클래스에서 객체변수 네임을 선언하고 setName 메소드를 생성하였다.
+- 자식은 여러명 있을 수 있고 모두 부모클래스를 상속받는다.
+- Teacher 란 클래스를 생성하고 선생님은 각각의 아이에게 다른 과목을 가르친다.
+
+여기서 만약 자식 또는 다른 부모의 자식 등 가르쳐야할 아이들이 많아지면 그때마다 teaching 메소드를 새롭게 생성해 주어야 한다. 바로 이러한 단점을 해소하기위해 인터페이스를 사용한다.
+
+**Teaching.java (interface)**  
+```java
+public interface Teaching { // 인터페이스 정의
+    public String getStudy();
+}
+```
+  
+**Parent.java (class)**  
+```java
+public class Parent {
+    String name;
+
+    public void setName(String name) {
+        this.name = name;
+    }
+}
+```
+  
+**Teacher.java (class)**  
+```java
+class Child extends Parent implements Teaching { // implements 로 인터페이스 적용
+    public String getStudy() {
+        return "end"
+    }
+}
+class Child2 extends Parent implements Teaching {
+    public String getStudy() {
+        return "math"
+    }
+}
+class Child3 extends Parent implements Teaching {
+    public String getStudy() {
+        return "programming"
+    }
+}
+
+public class Teacher {
+    public void teaching(Teaching teaching) { // 인터페이스 사용
+        System.out.println("teaching " + teaching.getStudy());
+    }
+
+    public static void main(String[] args) {
+        Teacher teacher = new Teacher();
+        Child child = new Child();
+        Child2 child2 = new Child2();
+        Child3 child3 = new Child3();
+
+        teacher.teaching(child); // Teaching eng
+        teacher.teaching(child2); // Teaching math
+        teacher.teaching(child3); // Teaching programming
+    }
+}
+```
+
+어떤 행동이나 어떤 값을 리턴해 줄지는 자식들이 갖고있고 인터페이스는 단지 어떤 메소드나 행위를 정의할지만 정해주게된다. 그 행동의 구체적인 내용은 자식이나 또는 다른 부모의 자식이 추가 될때 정의하면 선생클래스에서 매번 메소드를 생성해줄 필요는 없다. 즉 인터페이스를 사용하면 메소드오버로딩에 대해 신경쓰지 않아도 된다.
