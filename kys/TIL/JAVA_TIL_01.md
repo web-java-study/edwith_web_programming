@@ -54,6 +54,40 @@ String b = 'Hello Java'
 - List
 - Map
 
+### String 클래스
+변수중에 자주 사용하게되는 String 타입이 있는데 이 String 타입은 기본적으로 있는 자바의 변수 타입이 아닌 클래스로 내장된 사용자 정의 자료형이라고 볼 수있다. 때문에 String 은 클래스라고 볼 수 있고 특이하게 다른 클래스와 다르게 인스턴스를 생성하지않고도 사용이 가능하다.
+```java
+public class StringClassTest {
+    String string = 'abc';
+}
+```
+
+클래스이기때문에 인스턴스 생성하듯이 사용도 가능하다.
+
+```java
+public class StringClassTest {
+    String string = new String("abc");
+}
+```
+
+위 코드는 동일하게 abc 를 출력하지만 동작하는 방식은 조금 다르다.
+
+```java
+public class StringTest {
+    public static void main(String[] args) {
+        String str1 = "abc";
+        String str2 = "abc";
+
+        String str3 = new String("abc");
+        String str4 = new String("abc");
+        
+        System.out.println(str1 == str2); // true
+        System.out.println(str3 == str4); // false
+    }
+}
+```
+new 생성자를 사용하게되면 str3 과 str4 는 완전히 다른 메모리에 각각 값을 저장하게되기때문에 두 변수를 비교하게되면 틀리다고 나오지만 new 없이 사용하게되면 메모리에서 같은값이 있는지 검색하고 있으면 같은 메모리를 참조하고 새로운 인스턴스를 생성하지않는다. 따라서 str1 과 str2 는 같은 메모리를 바라보고있기때문에 같은값이 될 수 있다.
+
 
 ### 사용자 정의 자료형
 JAVA 에서 기본적으로 정의되고 제공하는 자료형말고 사용자가 직접 자료형을 정의하고 사용할 수 있다.
