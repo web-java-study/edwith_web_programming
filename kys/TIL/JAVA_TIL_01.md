@@ -152,3 +152,44 @@ map 에는 HashMap 외에도
 TreeMap 은 입력된 key의 정렬순으로 데이터가 출력되는 특징이 있다.
 
 
+### 열거형 (enum)
+자바는 열거형 타입을 사용하여 변수를 선언할때 변수타입으로 사용할 수 있다. 이때 enum 을 사용하게되어 얻는 이점은 enum 에서 정의된 값 이외의 값을 선언하게되면 컴파일단계에서 에러를 발생시켜 enum 에 열거된 값만 변수에 넣을 수 있도록 하여준다.
+```java
+public class EnumExam {
+    public static final String MALE = "MALE"; // 상수선언
+    public static final String FEMALE = "FEMALE";
+
+    public static void main(String[] args) {
+        // gender1 에는 MALE 이나 FEMALE만 입력받고 싶다.
+        String gender1;
+
+        gender1 = EnumExam.MALE;
+        gender1 = EnumExam.FEMALE;
+
+        gender1 = "boy" // 현재는 이렇게 모든 스트링 값이면 gender1 변수에 할당 가능하다.
+    }
+}
+```
+
+위의 코드를 원하는대로 MALE / FEMALE 만 받을수 있도록 하려면 enum 타입을 추가하여 입력받을 값을 열거해주면된다.
+
+```java
+public class EnumExam {
+    public static final String MALE = "MALE"; // 상수선언
+    public static final String FEMALE = "FEMALE";
+
+    public static void main(String[] args) {
+        // gender1 에는 MALE 이나 FEMALE만 입력받고 싶다.
+        Gender gender1;
+
+        gender1 = Gender.MALE;
+        gender1 = Gender.FEMALE;
+
+        gender1 = "boy" // 컴파일 단계에러 에러발생
+    }
+}
+
+enum Gender {
+    MALE, FEMALE;
+}
+```
