@@ -78,6 +78,35 @@ public class Student {
 
 위의 코드는 각각 생성된 객체가 동일한 메소드를 호출하여 사용하는 코드이다. 위의 코드로 알수있는것은 객체변수는 공유되지않고 생성된 객체에 의해 개별적으로 메소드가 호출된다는걸 알 수 있다. 생성된 객체에 따라 변수나 메소드가 개별적으로 적용되기때문에 객체지향적이라고 불리우는 이유가된다.
 
+
+### 추상클래스
+추상클래스는 구체적이지 않은 클래스를 의미하며 새, 자동차, 가구 등이 추상클래스로 볼 수 있겠다. 새 라고하면 어떤사람은 독수리 어떤사람은 앵무새를 생각할 수 있고 자동차 했을경우 어떤사람은 스포츠카 어떤사람은 트럭 을 생각할 수도 있겠다. 
+```java
+public abstract class Car {
+    public abstract void go();
+
+    public void back() {
+        System.out.println("후진");
+    }
+}
+
+public class Truck extends Car {
+    @Override
+    public void go() {
+        System.out.println("전진");
+    }
+}
+
+public class TruckExam {
+    Truck truck = new Truck();
+    truck.go(); // 전진
+    truck.back(); // 후진
+
+    // Car car = new Car(); 추상클래스는 부모의 역할은 가능하지만 객체 생성은 할 수 없다.
+}
+```
+추상클래스는 abstract를 사용하여 정의할 수 있다. 추상클래스에는 정의된 메소드 또는 아직 정의되지 않은 메소드를 갖고 있을 수 있고 자식 클래스에서 상속받아 메소드의 확장이 가능하다. 추상클래스를 상속받은 자식클래스는 객체로 생성이 가능하지만 추상클래스자체가 객체로써 생성하여 사용할수는 없다.
+
 ### 메소드
 ```java
 public class MethodTest {

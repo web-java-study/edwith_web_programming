@@ -9,7 +9,7 @@ public class EnumExam {
         gender1 = Gender.MALE;
         gender1 = Gender.FEMALE;
 
-        gender1 = "boy";
+//        gender1 = "boy";
     }
 }
 
