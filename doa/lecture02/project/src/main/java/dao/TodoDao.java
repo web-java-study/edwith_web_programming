@@ -10,6 +10,7 @@ import java.sql.PreparedStatement;
 
 import dto.TodoDto;
 import dbConnect.DBConn;
+import controller.TodoFormServlet;
 
 public class TodoDao {
 		/* [JDBC Java Database Connectivity] */
@@ -28,7 +29,6 @@ public class TodoDao {
 				System.out.println(conn);
 				pstmt = conn.prepareStatement(sql);
 				
-				// ?에 대한 값을 바인딩
 				pstmt.setString(1, dto.getTitle());
 				pstmt.setString(2, dto.getName());
 				pstmt.setLong(3, dto.getSequence());
@@ -86,7 +86,7 @@ public class TodoDao {
 					dto.setTitle(rs.getString("title"));
 					dto.setSequence(rs.getInt("sequence"));
 					dto.setType(rs.getString("type"));
-					dto.setRegdate(rs.getString("regdate"));
+					dto.setRegdate(rs.getDate("regdate"));
 					
 					dtos.add(dto);
 					System.out.println(dto.toString());
