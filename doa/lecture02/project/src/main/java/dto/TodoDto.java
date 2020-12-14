@@ -1,10 +1,11 @@
 package dto;
 
+import java.util.Date;
 
 public class TodoDto {
-	private Long id;
-	private String name;
-	private String regdate;
+    private Long id;
+    private String name;
+    private Date regdate;
     private int sequence;
     private String title;
     private String type;
@@ -13,18 +14,20 @@ public class TodoDto {
     	
     }
     
-    public TodoDto(Long id, String name, String regdate, int sequence, String title, String type) {
-        super();
+    public TodoDto(Long id, String name, Date regdate, int sequence, String title, String type) {
         this.id = id;
         this.name = name;
         this.regdate = regdate;
         this.sequence = sequence;
         this.title = title;
         this.type = type;
-}
-    public TodoDto(String title2, String name2, int sequence2) {
-		// TODO Auto-generated constructor stub
-	}
+    }
+    
+    public TodoDto(String title, String name, int sequence) {
+    	this.title = title;
+    	this.name = name;
+    	this.sequence = sequence;
+    }
 
 	public Long getId() {
         return id;
@@ -42,11 +45,11 @@ public class TodoDto {
         this.name = name;
     }
 
-    public String getRegdate() {
+    public Date getRegdate() {
         return regdate;
     }
 
-    public void setRegdate(String regdate) {
+    public void setRegdate(Date regdate) {
         this.regdate = regdate;
     }
 
