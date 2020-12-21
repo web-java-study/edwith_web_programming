@@ -3,9 +3,9 @@ package dto;
 import java.util.Date;
 
 public class TodoDto {
-    private Long id;
-    private String name;
-    private Date regdate;
+	private Long id;
+	private String name;
+	private Date regDate;
     private int sequence;
     private String title;
     private String type;
@@ -14,10 +14,10 @@ public class TodoDto {
     	
     }
     
-    public TodoDto(Long id, String name, Date regdate, int sequence, String title, String type) {
+    public TodoDto(Long id, String name, Date regDate, int sequence, String title, String type) {
         this.id = id;
         this.name = name;
-        this.regdate = regdate;
+        this.regDate = regDate;
         this.sequence = sequence;
         this.title = title;
         this.type = type;
@@ -45,12 +45,12 @@ public class TodoDto {
         this.name = name;
     }
 
-    public Date getRegdate() {
-        return regdate;
+    public Date getRegDate() {
+        return regDate;
     }
 
-    public void setRegdate(Date regdate) {
-        this.regdate = regdate;
+    public void setRegDate(Date regDate) {
+        this.regDate = regDate;
     }
 
     public int getSequence() {
@@ -79,7 +79,7 @@ public class TodoDto {
 
     @Override
     public String toString() {
-        return "Todo [id= " +id + ", name= " +name + ", regdate= " +regdate + ", sequence= " +sequence + ", title= " +title + ", type= " + type + "]";
+        return "Todo [id= " +id + ", name= " +name + ", regdate= " +regDate + ", sequence= " +sequence + ", title= " +title + ", type= " + type + "]";
     }
 
 

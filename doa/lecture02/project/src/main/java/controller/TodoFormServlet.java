@@ -37,6 +37,8 @@ public class TodoFormServlet extends HttpServlet {
 		TodoDao dao = new TodoDao();
 		TodoDto dto = new TodoDto(title, name, Integer.parseInt(sequence));
 		
+		// 생성자를 이용한 데이터 주입, 세터를 이용한 데이터 주입
+		
 		int test;
 		test = dao.getTodoDto(dto);
 		

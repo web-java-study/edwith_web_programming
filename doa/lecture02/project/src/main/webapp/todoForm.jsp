@@ -37,6 +37,6 @@
 		</div>
 	</form>
 	<button type="button" onclick="location.href='/'">&lt; 이전</button>
-	<script src="/js/app.js"></script>
+	<script src="/js/todoForm.js"></script>
 </body>
 </html>
