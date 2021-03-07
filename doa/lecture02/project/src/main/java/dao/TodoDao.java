@@ -29,6 +29,7 @@ public class TodoDao {
 				System.out.println(conn);
 				pstmt = conn.prepareStatement(sql);
 				
+				// ?에 대한 값을 바인딩
 				pstmt.setString(1, dto.getTitle());
 				pstmt.setString(2, dto.getName());
 				pstmt.setLong(3, dto.getSequence());
@@ -86,7 +87,7 @@ public class TodoDao {
 					dto.setTitle(rs.getString("title"));
 					dto.setSequence(rs.getInt("sequence"));
 					dto.setType(rs.getString("type"));
-					dto.setRegdate(rs.getDate("regdate"));
+					dto.setRegDate(rs.getDate("regdate"));
 					
 					dtos.add(dto);
 					System.out.println(dto.toString());
@@ -121,6 +122,9 @@ public class TodoDao {
 		
 		}
 
+		// update todo set type = 'DOING' where id = 1; update todo set type = 'DONE' where id = 1;
+		//public int update
+		
 		
 }
 

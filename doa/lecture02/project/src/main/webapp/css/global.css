@@ -1,0 +1,38 @@
+#container {
+	border: 1px solid;
+	margin: 0 auto;
+	display: flex;
+	position: relative;
+	width:1200px;
+	justify-content: space-between;
+}
+
+#container>div>:first-child {
+	line-height: 100px;
+	height: 100px;
+	padding-left: 1rem;
+	background-color:#173F5F;
+	color: white;
+	font-weight: bold;
+	font-size: 1.3rem;
+}
+
+.list {
+	padding: 1rem 0.5rem 1rem 1rem;
+	background-color:#d8ebff;
+	border: 1px solid;
+	margin-bottom:10px;
+}
+
+#container>div {
+	width: 360px;
+}
+
+
+/* 
+1. 색상, 세부 색상
+2. 간격
+3. 리스트 안의 글자 굵기
+4. 버튼
+*/
+
