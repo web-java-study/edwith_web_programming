@@ -43,4 +43,51 @@ public class ArrayList {
         elementData[size] = null;
         return removed;
     }
+
+    public Object removeFirst() {
+        return remove(0);
+    }
+
+    public Object removeLast() {
+        return remove(size - 1);
+    }
+
+    public Object get(int index) {
+        return elementData[index];
+    }
+    public int size() {
+        return size;
+    }
+
+    public ListIterator listIterator() {
+        return new ListIterator();
+    }
+
+    class ListIterator {
+        private int nextIndex = 0;
+        public Object next() {
+            return elementData[nextIndex++];
+        }
+
+        public boolean hasNext() {
+            return nextIndex < size();
+        }
+
+        public  boolean hasPrevious() {
+            return nextIndex > 0;
+        }
+
+        public Object prev() {
+            return elementData[--nextIndex];
+        }
+
+        public void add(Object element) {
+            ArrayList.this.add(nextIndex++, element);
+        }
+
+        public void remove() {
+            ArrayList.this.remove(nextIndex-1);
+            nextIndex--;
+        }
+    }
 }
